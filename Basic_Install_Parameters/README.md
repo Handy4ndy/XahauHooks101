@@ -15,7 +15,7 @@ See the parent [`Xahau-Hooks-101`](../README.md) for project context.
 | install_parameter_max.c | Install param `'MAX'` (8 bytes) — accepts incoming XAH payments ≤ MAX. |
 | install_parameter_multi.c | Install param `'MULTI'` (8 bytes) — accepts incoming XAH payments that are multiples of MULTI. |
 | install_parameter_admin.c | Install param `'A_ACC'` (20 bytes) — allows Invoke from the hook account and configured admin account. |
-| install_parameter_lock.c | (optional) Install param `'W_ACC'` (20 bytes) — whitelist account allowed to Invoke. |
+
 
 ## Overview
 
