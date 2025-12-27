@@ -19,6 +19,7 @@ This directory contains examples demonstrating common on‑chain state patterns:
 | basic_state_count_increase.c | Increments counter on Payment; rejects when counter >= 100. |
 | basic_state_count_decrease.c | Decrements counter on Payment; starts at 100, rejects when <= 0. |
 | basic_state_execution_limit.c | Execution limit example: starts at 5, decrements on Payment, rejects when 0. |
+| basic_state_toggle.c | Owner-only Invoke: toggle hook on/off ('TGL'); payments accepted with trace if enabled. |
 
 ## Overview
 
@@ -35,6 +36,7 @@ These hooks show practical patterns for persisting and managing data in Hook sta
 - 'DEL' (8 bytes) — numeric key to delete (basic_state_delete / manager).
 - 'UPD' (8 bytes) — key to update with new 'VAL' (basic_state_manager).
 - 'CNT' (8 bytes) — counter parameter for manual set (basic_state_counter).
+- 'TGL' (1 byte) — enable/disable flag (basic_state_toggle).
 - State key {'C','N','T'} — used by multiple hooks to store the counter.
 
 Lengths matter: check otxn_param/state return lengths (8 for uint64, 20 for account ids, etc.).
