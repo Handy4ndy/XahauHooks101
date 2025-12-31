@@ -1,6 +1,6 @@
 //**************************************************************
 // Xahau Hook 101 Example ~ Install Parameter Multi Hook
-// Author: @handy_4ndy
+// Author: @Handy_4ndy
 //
 // Description:
 //   This hook accepts incoming XAH payments that are a multiple of the fixed XAH amount set by install parameter.

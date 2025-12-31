@@ -1,6 +1,6 @@
 //**************************************************************
 // Xahau Hook 101 Example ~ Install Parameter Exact Hook
-// Author: @handy_4ndy
+// Author: @Handy_4ndy
 //
 // Description:
 //   This hook accepts incoming XAH payments that match the exact amount set by install parameter.

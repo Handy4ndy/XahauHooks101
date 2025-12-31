@@ -1,6 +1,6 @@
 //**************************************************************
 // Xahau Hook 101 Example ~ Basic State Toggle Hook
-// Author: @handy_4ndy
+// Author: @Handy_4ndy
 //
 // Description:
 //   This hook demonstrates a simple on/off toggle mechanism using hook state.

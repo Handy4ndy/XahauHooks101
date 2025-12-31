@@ -1,6 +1,6 @@
 //**************************************************************
 // Xahau Hook 101 Example ~ IOU Logging Hook
-// Author: @handy_4ndy
+// Author: @Handy_4ndy
 //
 // Description:
 //   This hook demonstrates how to use tracing and logging macros in a Xahau Hook for IOU payments.

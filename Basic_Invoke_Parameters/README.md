@@ -29,6 +29,7 @@ Patterns demonstrated:
 ## Tools
 
 Use these online tools to work with these hooks—no local setup required:
+- **[Hex visualizer](https://transia-rnd.github.io/xrpl-hex-visualizer/)** and **[Hooks.Services](https://hooks.services/tools)** for conversion.
 - **[Xahau Hooks Builder](https://hooks-builder.xrpl.org/develop)**: Primary platform for developing, compiling, deploying, and testing hooks on Testnet using the starter template.
 - **[Deploy](https://hooks-builder.xrpl.org/deploy)**: Deploy and configure hooks on Testnet accounts.
 - **[Test](https://hooks-builder.xrpl.org/test)**: Create accounts, fund them, and perform transactions directly within the platform.
@@ -42,8 +43,6 @@ Use these online tools to work with these hooks—no local setup required:
 3. Set parameters by sending an Invoke (tt=99) from the hook owner with the appropriate parameter:
    - EXACT, MIN, MAX, MULTI (8-byte uint64) or A_ACC (20-byte ACCOUNT_ID).
 4. Send Payment transactions to test enforcement logic. If state parameter missing, payment path typically rollbacks with an explanatory message.
-
-Use [Hex visualizer](https://transia-rnd.github.io/xrpl-hex-visualizer/) and [Hooks.Services](https://hooks.services/tools) for conversion.
 
 Example Invoke to set MIN:
 - Invoke from hook owner with parameter key 'MIN' : '0000000000000001' (8 bytes uint64) → saved to state.

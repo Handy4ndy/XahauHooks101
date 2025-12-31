@@ -1,6 +1,6 @@
 //**************************************************************
 // Xahau Hook 101 Example ~ Install Parameter Max Hook
-// Author: @handy_4ndy
+// Author: @Handy_4ndy
 //
 // Description:
 //   This hook accepts incoming XAH payments when the amount is below the maximum threshold set by install parameter.

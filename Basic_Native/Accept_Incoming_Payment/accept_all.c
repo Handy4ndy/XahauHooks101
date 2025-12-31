@@ -1,6 +1,6 @@
 //**************************************************************
 // Xahau Hook 101 Example ~ Accept All Payments Hook
-// Author: @handy_4ndy
+// Author: @Handy_4ndy
 //
 // Description:
 //   This hook accepts all incoming payments and all outgoing payments.

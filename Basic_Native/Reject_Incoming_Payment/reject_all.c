@@ -1,6 +1,6 @@
 //**************************************************************
 // Xahau Hook 101 Example ~ Reject All Payments Hook
-// Author: @handy_4ndy
+// Author: @Handy_4ndy
 //
 // Description:
 //   This hook rejects all incoming payments and all outgoing payments.

@@ -1,6 +1,6 @@
 //**************************************************************
 // Xahau Hook 101 Example ~ Accept Outgoing Exact Hook
-// Author: @handy_4ndy
+// Author: @Handy_4ndy
 //
 // Description:
 //   This hook accepts outgoing XAH payments that match the specified amount (10 XAH), incoming payments, and incoming IOU payments.

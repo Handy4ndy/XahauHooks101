@@ -1,6 +1,6 @@
 //**************************************************************
 // Xahau Hook 101 Example ~ Basic State Manager Hook
-// Author: @handy_4ndy
+// Author: @Handy_4ndy
 //
 // Description:
 //   This hook allows the owner to add, update, or delete state entries on-chain.

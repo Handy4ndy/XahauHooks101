@@ -1,6 +1,6 @@
 //**************************************************************
 // Xahau Hook 101 Example ~ Basic State Counter Hook
-// Author: @handy_4ndy
+// Author: @Handy_4ndy
 //
 // Description:
 //   This hook increments a counter in state each time a Payment transaction is processed on the hook account.

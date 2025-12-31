@@ -1,6 +1,6 @@
 //**************************************************************
 // Xahau Hook 101 Example ~ Reject Incoming IOU Multi Hook
-// Author: @handy_4ndy
+// Author: @Handy_4ndy
 //
 // Description:
 //   This hook rejects outgoing payments, incoming IOU payments that are not multiples of the fixed amount (10 IOU), and incoming XAH payments.

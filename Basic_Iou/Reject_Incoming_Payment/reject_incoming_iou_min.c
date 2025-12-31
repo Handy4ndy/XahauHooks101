@@ -1,6 +1,6 @@
 //**************************************************************
 // Xahau Hook 101 Example ~ Reject Incoming IOU Min Hook
-// Author: @handy_4ndy
+// Author: @Handy_4ndy
 //
 // Description:
 //   This hook rejects outgoing payments, incoming IOU payments below the minimum threshold (1 IOU), and incoming XAH payments.

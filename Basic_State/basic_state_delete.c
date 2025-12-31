@@ -1,6 +1,6 @@
 //**************************************************************
 // Xahau Hook 101 Example ~ Basic State Delete Hook
-// Author: @handy_4ndy
+// Author: @Handy_4ndy
 //
 // Description:
 //   This hook allows the owner to add or delete notes on-chain.

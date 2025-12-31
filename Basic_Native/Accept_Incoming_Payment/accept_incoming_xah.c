@@ -1,6 +1,6 @@
 //**************************************************************
 // Xahau Hook 101 Example ~ Accept Incoming XAH Hook
-// Author: @handy_4ndy
+// Author: @Handy_4ndy
 //
 // Description:
 //   This hook accepts incoming XAH payments and outgoing payments.

@@ -34,7 +34,7 @@ Use these online tools to work with these hooks—no local setup required:
 
 
 ## Current Status
-This project now contains a broad set of examples, each in its own folder and fully documented. These Hooks cover everything from basic transaction processing to more advanced features, and are intended as a foundation for learning and experimentation. See the individual folders and their `README.md` files for details on each contract.
+This project now contains a broad set of examples, each in its own folder and fully documented. These Hooks cover everything from basic transaction processing to more advanced features, including recent additions like the Native_Emit and IOU_Emit collections demonstrating native XAH and IOU token emission patterns. All are intended as a foundation for learning and experimentation. See the individual folders and their `README.md` files for details on each contract.
 
 
 
@@ -42,7 +42,7 @@ This project now contains a broad set of examples, each in its own folder and fu
 
 The next stage of Xahau Hooks 101 is already underway and it's more exciting than ever! We're moving beyond the basics to incorporate:
 
-- **Native and IOU emits**: Learn how to trigger and handle emits for both native and IOU assets, opening up new possibilities for on-chain event-driven logic.
+- **IOU and URI remit examples**: Learn how to trigger and handle remits for IOU and URI assets, opening up new possibilities for on-chain event-driven logic.
 - **Processing and emitting additional transactions**: See how Hooks can not only react to incoming transactions, but also process and emit new transactions as part of their logic, enabling powerful automation and composability.
 - **Advanced transaction validation** (e.g., filtering by amount or account).
 - **Namespaces for organized data**.

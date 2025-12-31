@@ -1,6 +1,6 @@
 //**************************************************************
 // Xahau Hook 101 Example ~ Reject Outgoing IOU Max Hook
-// Author: @handy_4ndy
+// Author: @Handy_4ndy
 //
 // Description:
 //   This hook rejects incoming payments, outgoing IOU payments above the maximum threshold (100 IOU), and outgoing XAH payments.

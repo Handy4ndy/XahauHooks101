@@ -1,6 +1,6 @@
 //**************************************************************
 // Xahau Hook 101 Example ~ Reject Incoming Exact Hook
-// Author: @handy_4ndy
+// Author: @Handy_4ndy
 //
 // Description:
 //   This hook rejects outgoing payments, incoming XAH payments that exactly match the specified amount (10 XAH), and incoming IOU payments.

@@ -1,6 +1,6 @@
 //**************************************************************
 // Xahau Hook 101 Example ~ Install Parameter Admin Hook
-// Author: @handy_4ndy
+// Author: @Handy_4ndy
 //
 // Description:
 //   This hook allows only the hook account and admin accounts to perform Invoke transactions on the hook account.

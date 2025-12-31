@@ -1,6 +1,6 @@
 //**************************************************************
 // Xahau Hook 101 Example ~ Native Logging Hook
-// Author: @handy_4ndy
+// Author: @Handy_4ndy
 //
 // Description:
 //   This hook demonstrates how to use tracing and logging macros in a Xahau Hook.

@@ -1,6 +1,6 @@
 //**************************************************************
 // Xahau Hook 101 Example ~ Invoke Parameter Min Hook
-// Author: @handy_4ndy
+// Author: @Handy_4ndy
 //
 // Description:
 //   This hook accepts incoming XAH payments when the amount is above the minimum threshold set by Invoke parameter.

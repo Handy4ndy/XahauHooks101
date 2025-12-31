@@ -1,6 +1,6 @@
 //**************************************************************
 // Xahau Hook 101 Example ~ Accept Incoming IOU Only Hook
-// Author: @handy_4ndy
+// Author: @Handy_4ndy
 //
 // Description:
 //   This hook accepts only incoming IOU payments.

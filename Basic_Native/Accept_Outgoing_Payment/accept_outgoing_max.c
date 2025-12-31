@@ -1,6 +1,6 @@
 //**************************************************************
 // Xahau Hook 101 Example ~ Accept Outgoing Max Hook
-// Author: @handy_4ndy
+// Author: @Handy_4ndy
 //
 // Description:
 //   This hook accepts outgoing XAH payments when the amount is below the maximum threshold (100 XAH), incoming payments, and incoming IOU payments.

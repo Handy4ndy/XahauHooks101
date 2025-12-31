@@ -1,6 +1,6 @@
 //**************************************************************
 // Xahau Hook 101 Example ~ Basic State Count Decrease Hook
-// Author: @handy_4ndy
+// Author: @Handy_4ndy
 //
 // Description:
 //   This hook decrements a counter in state each time a Payment transaction is processed on the hook account.

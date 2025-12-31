@@ -1,6 +1,6 @@
 //**************************************************************
 // Xahau Hook 101 Example ~ Accept Outgoing Min Hook
-// Author: @handy_4ndy
+// Author: @Handy_4ndy
 //
 // Description:
 //   This hook accepts outgoing XAH payments when the amount is above the minimum threshold (1 XAH), incoming payments, and incoming IOU payments.

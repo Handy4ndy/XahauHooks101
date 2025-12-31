@@ -1,6 +1,6 @@
 //**************************************************************
 // Xahau Hook 101 Example ~ Accept Outgoing Multi Hook
-// Author: @handy_4ndy
+// Author: @Handy_4ndy
 //
 // Description:
 //   This hook accepts outgoing XAH payments that are a multiple of the fixed XAH amount (10 XAH), incoming payments, and incoming IOU payments.
