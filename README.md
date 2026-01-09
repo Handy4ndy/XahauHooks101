@@ -35,8 +35,8 @@ Every contract is kept brief, thoroughly commented, and follows consistent patte
 - **[Basic_Install_Parameters/](Basic_Install_Parameters/)** (5 hooks) - Install-time configuration patterns
 - **[Basic_Invoke_Parameters/](Basic_Invoke_Parameters/)** (5 hooks) - Runtime parameter setting via Invoke
 - **[Basic_State/](Basic_State/)** (8 hooks) - State management and persistence
-- **[Basic_IOU/](Basic_IOU/)** (20 hooks) - IOU token payment handling and validation
-- **[Basic_Native/](Basic_Native/)** (20 hooks) - Native XAH payment processing
+- **[Basic_IOU/](Basic_IOU/)** (28 hooks) - IOU token payment handling and validation
+- **[Basic_Native/](Basic_Native/)** (28 hooks) - Native XAH payment processing
 
 ### Advanced Patterns (Emission & Creation)
 - **[Emit_IOU/](Emit_IOU/)** (7 hooks) - IOU token emission using Payment transactions
