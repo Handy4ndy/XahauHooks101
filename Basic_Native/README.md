@@ -2,7 +2,7 @@
 
 ## About Xahau Hooks 101
 
-**Xahau Hooks 101** is a growing collection of short, beginner-friendly Xahau Hook examples written in C, designed to explore the Xahau Network’s smart contract-like features. Each Hook is a concise, digestible snippet compiled to WebAssembly (WASM) using the [Xahau Hooks Builder](https://hooks-builder.xrpl.org/develop) starter template, suitable for testing on the Xahau Testnet or deploying to Mainnet. This project creates a reference resource for developers to help others learn.
+**Xahau Hooks 101** is a growing collection of short, beginner-friendly Xahau Hook examples written in C, designed to explore the Xahau Network’s smart contract-like features. Each Hook is a concise, digestible snippet compiled to WebAssembly (WASM) using the [Xahau Hooks Builder](https://builder.xahau.network/develop) starter template, suitable for testing on the Xahau Testnet or deploying to Mainnet. This project creates a reference resource for developers to help others learn.
 
 For more details, see the parent [`Xahau-Hooks-101`](../README.md).
 
@@ -59,19 +59,19 @@ These hooks validate XAH payments while accepting or rejecting based on criteria
 ## Tools
 
 Use these online tools to work with these hooks—no local setup required:
-- **[Xahau Hooks Builder](https://hooks-builder.xrpl.org/develop)**: Primary platform for developing, compiling, deploying, and testing hooks on Testnet using the starter template.
-- **[Deploy](https://hooks-builder.xrpl.org/deploy)**: Deploy and configure hooks on Testnet accounts.
-- **[Test](https://hooks-builder.xrpl.org/test)**: Create accounts, fund them, and perform transactions directly within the platform.
+- **[Xahau Hooks Builder](https://builder.xahau.network/develop)**: Primary platform for developing, compiling, deploying, and testing hooks on Testnet using the starter template.
+- **[Deploy](https://builder.xahau.network/deploy)**: Deploy and configure hooks on Testnet accounts.
+- **[Test](https://builder.xahau.network/test)**: Create accounts, fund them, and perform transactions directly within the platform.
 - **[XRPLWin Hook Management](https://xahau-testnet.xrplwin.com/)**: Explore Hook executions in detail (Great for Debugging)
 - **[Xahau Explorer](https://test.xahauexplorer.com/en)**: Verify transactions and hook details.
 
 ## Installation and Usage
 
 1. **Develop, Deploy, and Test on Testnet (All in Hooks Builder)**:
-   - Copy the desired `.c` hook code into the [Xahau Hooks Builder](https://hooks-builder.xrpl.org/develop) basic starter template.
+   - Copy the desired `.c` hook code into the [Xahau Hooks Builder](https://builder.xahau.network/develop) basic starter template.
    - Compile to WASM.
-   - Move to the [Deploy](https://hooks-builder.xrpl.org/deploy) section: Set the hook on a Testnet account, configure hook triggers (e.g., for payments), and add any install parameters if needed.
-   - Move to [Testing](https://hooks-builder.xrpl.org/test): Perform transactions to test the hook behavior.
+   - Move to the [Deploy](https://builder.xahau.network/deploy) section: Set the hook on a Testnet account, configure hook triggers (e.g., for payments), and add any install parameters if needed.
+   - Move to [Testing](https://builder.xahau.network/test): Perform transactions to test the hook behavior.
 
 2. **Verify Results and Confirm Hook Behavior**:
    - Use [XRPLWin Xahau Testnet](https://xahau-testnet.xrplwin.com) to check detailed testing results and confirm the hook's behavior.

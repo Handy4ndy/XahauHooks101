@@ -70,9 +70,9 @@ These hooks validate outgoing IOU payments while accepting incoming payments and
 ## Tools
 
 Use these online tools to work with these hooks—no local setup required:
-- **[Xahau Hooks Builder](https://hooks-builder.xrpl.org/develop)**: Primary platform for developing, compiling, deploying, and testing hooks on Testnet using the starter template.
-- **[Deploy](https://hooks-builder.xrpl.org/deploy)**: Deploy and configure hooks on Testnet accounts.
-- **[Test](https://hooks-builder.xrpl.org/test)**: Create accounts, fund them, and perform transactions for testing.
+- **[Xahau Hooks Builder](https://builder.xahau.network/develop)**: Primary platform for developing, compiling, deploying, and testing hooks on Testnet using the starter template.
+- **[Deploy](https://builder.xahau.network/deploy)**: Deploy and configure hooks on Testnet accounts.
+- **[Test](https://builder.xahau.network/test)**: Create accounts, fund them, and perform transactions for testing.
 - **[XRPLWin Xahau Testnet Tools](https://xahau-testnet.xrplwin.com/tools)**: Create and test transactions on the Testnet; ideal for reviewing detailed results or preparing for Mainnet deployment.
 - **[XRPLWin Hook Management](https://xahau-testnet.xrplwin.com/account/YOUR_WALLET_RADDRESS_HERE/manage/hooks)**: Deploy and manage hooks on Testnet or Mainnet (replace `YOUR_WALLET_RADDRESS_HERE` with your account, e.g., `rTest123...`).
 - **[Xahau Testnet Faucet](https://xahau-test.net/faucet)**: Fund Testnet accounts.
@@ -81,10 +81,10 @@ Use these online tools to work with these hooks—no local setup required:
 ## Installation and Usage
 
 1. **Develop, Deploy, and Test on Testnet (All in Hooks Builder)**:
-   - Copy the desired `.c` hook code into the [Xahau Hooks Builder](https://hooks-builder.xrpl.org/develop) basic starter template.
+   - Copy the desired `.c` hook code into the [Xahau Hooks Builder](https://builder.xahau.network/develop) basic starter template.
    - Compile to WASM.
-   - Move to the [Deploy](https://hooks-builder.xrpl.org/deploy) section: Set the hook on a Testnet account, configure hook triggers (e.g., for payments), and add any install parameters if needed.
-   - Move to [Testing](https://hooks-builder.xrpl.org/test): Perform transactions to test the hook behavior.
+   - Move to the [Deploy](https://builder.xahau.network/deploy) section: Set the hook on a Testnet account, configure hook triggers (e.g., for payments), and add any install parameters if needed.
+   - Move to [Testing](https://builder.xahau.network/test): Perform transactions to test the hook behavior.
 
 2. **Verify Results and Confirm Hook Behavior**:
    - Use [XRPLWin Xahau Testnet Tools](https://xahau-testnet.xrplwin.com/tools) to check detailed testing results and confirm the hook's behavior.

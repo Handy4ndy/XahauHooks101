@@ -33,9 +33,9 @@ Typical behaviors:
 
 Use these online tools to work with these hooks—no local setup required:
 - **[Hex visualizer](https://transia-rnd.github.io/xrpl-hex-visualizer/)** and **[Hooks.Services](https://hooks.services/tools)** for conversion.
-- **[Xahau Hooks Builder](https://hooks-builder.xrpl.org/develop)**: Primary platform for developing, compiling, deploying, and testing hooks on Testnet using the starter template.
-- **[Deploy](https://hooks-builder.xrpl.org/deploy)**: Deploy and configure hooks on Testnet accounts.
-- **[Test](https://hooks-builder.xrpl.org/test)**: Create accounts, fund them, and perform transactions directly within the platform.
+- **[Xahau Hooks Builder](https://builder.xahau.network/develop)**: Primary platform for developing, compiling, deploying, and testing hooks on Testnet using the starter template.
+- **[Deploy](https://builder.xahau.network/deploy)**: Deploy and configure hooks on Testnet accounts.
+- **[Test](https://builder.xahau.network/test)**: Create accounts, fund them, and perform transactions directly within the platform.
 - **[XRPLWin Hook Management](https://xahau-testnet.xrplwin.com/)**: Explore Hook executions in detail (Great for Debugging)
 - **[Xahau Explorer](https://test.xahauexplorer.com/en)**: Verify transactions and hook details.
 

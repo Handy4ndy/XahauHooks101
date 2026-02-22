@@ -5,7 +5,7 @@ Welcome to **Xahau Hooks 101** — the complete educational resource for learnin
 
 Whether you're a developer new to smart contracts, an experienced coder exploring Xahau, or just curious about decentralized logic, you'll find these examples approachable, practical, and immediately useful. The goal is to make learning Xahau Hooks accessible, hands-on, and comprehensive.
 
-All 101 contracts are ready to compile to WebAssembly (WASM) using the [Xahau Hooks Builder](https://hooks-builder.xrpl.org/develop) and can be tested on the Xahau Testnet or deployed to Mainnet. Dive in, experiment, and use these as the foundation for your own projects!
+All 101 contracts are ready to compile to WebAssembly (WASM) using the [Xahau Hooks Builder](https://builder.xahau.network/develop) and can be tested on the Xahau Testnet or deployed to Mainnet. Dive in, experiment, and use these as the foundation for your own projects!
 
 ## Overview
 
@@ -72,9 +72,9 @@ Every contract is kept brief, thoroughly commented, and follows consistent patte
 
 Use these online tools to work with these hooks—no local setup required:
 - **[Hex visualizer](https://transia-rnd.github.io/xrpl-hex-visualizer/)** and **[Hooks.Services](https://hooks.services/tools)** for conversion.
-- **[Xahau Hooks Builder](https://hooks-builder.xrpl.org/develop)**: Primary platform for developing, compiling, deploying, and testing hooks on Testnet using the starter template.
-- **[Deploy](https://hooks-builder.xrpl.org/deploy)**: Deploy and configure hooks on Testnet accounts.
-- **[Test](https://hooks-builder.xrpl.org/test)**: Create accounts, fund them, and perform transactions directly within the platform.
+- **[Xahau Hooks Builder](https://builder.xahau.network/develop)**: Primary platform for developing, compiling, deploying, and testing hooks on Testnet using the starter template.
+- **[Deploy](https://builder.xahau.network/deploy)**: Deploy and configure hooks on Testnet accounts.
+- **[Test](https://builder.xahau.network/test)**: Create accounts, fund them, and perform transactions directly within the platform.
 - **[XRPLWin Hook Management](https://xahau-testnet.xrplwin.com/)**: Explore Hook executions in detail (Great for Debugging)
 - **[Xahau Explorer](https://test.xahauexplorer.com/en)**: Verify transactions and hook details.
 
