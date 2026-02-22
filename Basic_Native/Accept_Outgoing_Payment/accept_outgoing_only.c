@@ -3,15 +3,23 @@
 // Author: @Handy_4ndy
 //
 // Description:
-//   This hook accepts outgoing payments.
-//   Rejects incoming payments.
+//   Accepts outgoing payments. Rejects incoming payments.
 //
-// Accepts:-
+// Triggers:
+//   ttPAYMENT (incoming and outgoing payments)
+//
+// Parameters:
+//   None
+//
+// Usage:
+//   - Deploy the hook to your account.
+//   - Outgoing payments are accepted; incoming payments are rejected.
+//
+// Accepts:
 //   - Outgoing payments.
 //
-// Rejects:-
+// Rejects:
 //   - Incoming payments.
-//
 //**************************************************************
 
 #include "hookapi.h"

@@ -3,17 +3,25 @@
 // Author: @Handy_4ndy
 //
 // Description:
-//   This hook rejects outgoing payments, incoming XAH payments below the minimum threshold (1 XAH), and incoming IOU payments.
-//   Accepts incoming XAH payments above the minimum threshold.
+//   Rejects outgoing payments, incoming XAH payments below the minimum threshold (1 XAH), and incoming IOU payments. Accepts incoming XAH payments above the minimum threshold.
 //
-// Accepts:-
+// Triggers:
+//   ttPAYMENT (incoming and outgoing payments)
+//
+// Parameters:
+//   None (minimum is hardcoded: 1 XAH)
+//
+// Usage:
+//   - Deploy the hook to your account.
+//   - Incoming XAH payments above 1 XAH are accepted; others are rejected accordingly.
+//
+// Accepts:
 //   - Incoming XAH payments above the minimum threshold.
 //
-// Rejects:-
+// Rejects:
 //   - Outgoing payments.
 //   - Incoming XAH payments below the minimum threshold (1 XAH).
 //   - Incoming IOU payments.
-//
 //**************************************************************
 
 #include "hookapi.h"

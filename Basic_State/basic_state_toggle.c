@@ -3,13 +3,14 @@
 // Author: @Handy_4ndy
 //
 // Description:
-//   This hook demonstrates a simple on/off toggle mechanism using hook state.
-//   The toggle controls whether the hook processes payments or skips them.
-//   When disabled (0), payments are accepted without action.
-//   When enabled (1), payments trigger a trace message.
+//   Demonstrates a simple on/off toggle mechanism using hook state. The toggle controls whether the hook processes payments or skips them. When disabled (0), payments are accepted without action. When enabled (1), payments trigger a trace message.
+//
+// Triggers:
+//   ttINVOKE (to set toggle)
+//   ttPAYMENT (behavior depends on toggle state)
 //
 // Parameters:
-//   - 'TGL' (1 byte): Set to 0 to disable, 1 to enable the hook.
+//   'TGL' (1 byte): Set to 0 to disable, 1 to enable the hook.
 //
 // Usage:
 //   - Send an Invoke transaction with 'TGL' parameter to enable/disable.
@@ -17,9 +18,12 @@
 //   - Payments are always accepted, but behavior depends on toggle state.
 //
 // Accepts:
-//   - All Invoke transactions from owner with valid TOGGLE parameter.
+//   - All Invoke transactions from owner with valid 'TGL' parameter.
 //   - All Payment transactions (with or without action based on toggle).
 //
+// Rejects:
+//   - Invoke transactions not from the hook owner.
+//   - Invoke transactions with invalid 'TGL' parameter.
 //**************************************************************
 
 #include "hookapi.h"

@@ -3,22 +3,26 @@
 // Author: @Handy_4ndy
 //
 // Description:
-//   This hook allows a designated admin account to trigger IOU token payments from the hook account
-//   via invoke transactions.
+//   Allows a designated admin account to trigger IOU token payments from the hook account via invoke transactions.
+//
+// Triggers:
+//   ttINVOKE (admin triggers emission)
 //
 // Parameters:
 //   'ADMIN' (20 bytes): Admin account ID that can trigger emissions.
 //   'CURRENCY' (20 bytes): IOU currency code.
 //   'ISSUER' (20 bytes): IOU issuer account.
+//   'AMT' (8 bytes): IOU amount to emit (provided in invoke).
+//   'DEST' (20 bytes): Destination account (provided in invoke).
 //
 // Usage:
 //   - Set 'ADMIN', 'CURRENCY', 'ISSUER' during hook installation.
-//   - Admin sends Invoke with 'AMT' (8 bytes, IOU amount) and 'DEST' (20 bytes, destination account).
+//   - Admin sends Invoke with 'AMT' and 'DEST' to emit IOU payment.
 //   - Hook emits IOU payment from itself to DEST for AMT.
-//   - [Hooks Services](https://hooks.services/tools)
+//   - Use [Hooks Services](https://hooks.services/tools) for testing.
 //
 // Accepts:
-//   - Invoke from admin with valid AMT and DEST.
+//   - Invoke from admin with valid 'AMT' and 'DEST'.
 //   - Outgoing payments.
 //
 // Rejects:

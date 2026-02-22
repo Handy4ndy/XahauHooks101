@@ -3,24 +3,25 @@
 // Author: @Handy_4ndy
 //
 // Description:
-//   This hook mints multiple URITokens on incoming payments
-//   using fixed, hardcoded URIs embedded in the code. Simplest
-//   form of multi-URI minting with no parameters required.
+//   Mints multiple URITokens on incoming payments using fixed, hardcoded URIs embedded in the code. No parameters required.
+//
+// Triggers:
+//   ttPAYMENT (incoming)
 //
 // Parameters:
-//   None - URIs are hardcoded in the source code
-//
-// Key Benefits of Hardcoded Multi-URI Minting:
-//   ✅ Simplest multi-mint deployment (no parameters needed)
-//   ✅ Fixed URI collection guarantees consistent metadata
-//   ✅ Immediate batch functionality after hook installation
-//   ✅ Perfect for fixed multi-variant proof-of-concept projects
+//   Hardcoded: URIs in the source code
 //
 // Usage:
 //   - Modify the hardcoded URIs in source code before compilation.
-//   - Deploy hook without any parameters.
+//   - Deploy without any parameters.
 //   - Incoming payments automatically mint multiple URITokens.
 //
+// Accepts:
+//   - Incoming payments (mints URITokens)
+//   - Outgoing payments
+//
+// Rejects:
+//   - Payments if hardcoded URIs are invalid
 //**************************************************************
 #include "hookapi.h"
 

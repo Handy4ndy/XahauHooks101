@@ -3,9 +3,10 @@
 // Author: @Handy_4ndy
 //
 // Description:
-//   This hook mints multiple URITokens on incoming payments
-//   using URIs defined at installation time. Supports batch
-//   minting of up to 5 different URIs per payment transaction.
+//   Mints multiple URITokens on incoming payments using URIs defined at installation time. Supports batch minting of up to 5 different URIs per payment transaction.
+//
+// Triggers:
+//   ttPAYMENT (incoming)
 //
 // Parameters (set at Install):
 //   'URI1' (variable length): First URI for tokens (required)
@@ -14,18 +15,18 @@
 //   'URI4' (variable length): Fourth URI for tokens (optional)
 //   'URI5' (variable length): Fifth URI for tokens (optional)
 //
-// Key Benefits of Multi-URI Minting:
-//   ✅ Batch minting efficiency (up to 5 URIs per payment)
-//   ✅ Fixed URI collection defined at installation
-//   ✅ Automatic validation of URI parameters
-//   ✅ Partial success handling for robust operation
-//
 // Usage:
 //   - Set URI1-URI5 parameters during hook installation.
 //   - Incoming payments automatically mint all valid URITokens.
 //   - Perfect for multi-variant NFT collections.
 //   - [Hooks Services](https://hooks.services/tools)
 //
+// Accepts:
+//   - Incoming payments (mints URITokens)
+//   - Outgoing payments
+//
+// Rejects:
+//   - Payments if required URIs are missing or invalid
 //**************************************************************
 #include "hookapi.h"
 

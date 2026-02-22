@@ -3,30 +3,32 @@
 // Author: @Handy_4ndy
 //
 // Description:
-//   This hook accepts incoming XAH payments that are a multiple of the fixed XAH amount set by Invoke parameter.
-//   Accepts outgoing payments and incoming IOU payments.
-//   Rejects if the payment is less than the fixed amount or not a multiple.
+//   Accepts incoming XAH payments that are a multiple of the fixed XAH amount set by Invoke parameter.
+//   Accepts outgoing payments and incoming IOU payments. Rejects if the payment is less than the fixed amount or not a multiple.
 //
-// Parameters:-
+// Triggers:
+//   ttINVOKE (for setting parameter)
+//   ttPAYMENT (incoming and outgoing payments)
+//
+// Parameters:
 //   'MULTI' (8 bytes): The fixed amount in XAH (uint64_t) to set in state.
 //
-// Usage:-
+// Usage:
 //   - Invoke from hook owner with 'MULTI' to set the amount.
 //   - Incoming XAH payments must be multiples of this amount; others are accepted or rejected accordingly.
 //
-// Accepts:-
+// Accepts:
 //   - Invoke transactions from the hook owner with 'MULTI' parameter to set the amount.
 //   - Outgoing payments.
 //   - Incoming IOU payments.
 //   - Incoming XAH payments that are a multiple of the fixed amount.
 //
-// Rejects:-
+// Rejects:
 //   - Invoke transactions not from the hook owner.
 //   - Invoke transactions without valid MULTI.
 //   - Incoming XAH payments that are less than the fixed amount.
 //   - Incoming XAH payments that are not a multiple of the fixed amount.
 //   - Payment transactions if MULTI amount not set in state.
-//
 //**************************************************************
 
 #include "hookapi.h"

@@ -3,29 +3,31 @@
 // Author: @Handy_4ndy
 //
 // Description:
-//   This hook accepts incoming XAH payments that match the exact amount set by Invoke parameter.
-//   Accepts outgoing payments and incoming IOU payments.
-//   Rejects if the payment amount doesn't match.
+//   Accepts incoming XAH payments that match the exact amount set by Invoke parameter.
+//   Accepts outgoing payments and incoming IOU payments. Rejects if the payment amount doesn't match.
 //
-// Parameters:-
+// Triggers:
+//   ttINVOKE (for setting parameter)
+//   ttPAYMENT (incoming and outgoing payments)
+//
+// Parameters:
 //   'EXACT' (8 bytes): The exact amount in XAH (uint64_t) to set in state.
 //
-// Usage:-
+// Usage:
 //   - Invoke from hook owner with 'EXACT' to set the amount.
 //   - Incoming XAH payments must match exactly; others are accepted or rejected accordingly.
 //
-// Accepts:-
+// Accepts:
 //   - Invoke transactions from the hook owner with 'EXACT' parameter to set the amount.
 //   - Outgoing payments.
 //   - Incoming IOU payments.
 //   - Incoming XAH payments that match the exact amount set in state.
 //
-// Rejects:-
+// Rejects:
 //   - Invoke transactions not from the hook owner.
 //   - Invoke transactions without valid EXACT.
 //   - Incoming XAH payments that do not match the exact amount.
 //   - Payment transactions if exact amount not set in state.
-//
 //**************************************************************
 
 #include "hookapi.h"

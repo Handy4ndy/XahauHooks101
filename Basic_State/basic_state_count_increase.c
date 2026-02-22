@@ -3,18 +3,25 @@
 // Author: @Handy_4ndy
 //
 // Description:
-//   This hook increments a counter in state each time a Payment transaction is processed on the hook account.
-//   The counter is stored in hook state under the key 'CNT'.
-//   It counts all Payment transactions (incoming and outgoing).
-//   Once the counter reaches 100, further Payment transactions are rejected.
+//   Increments a counter in state each time a Payment transaction is processed on the hook account. The counter is stored in hook state under the key 'CNT'. It counts all Payment transactions (incoming and outgoing). Once the counter reaches 100, further Payment transactions are rejected.
 //
-// Accepts:-
+// Triggers:
+//   ttPAYMENT (incoming and outgoing payments)
+//
+// Parameters:
+//   None (counter is managed internally)
+//
+// Usage:
+//   - Deploy the hook to your account.
+//   - Each Payment transaction increments the counter.
+//   - When the counter reaches 100, further Payment transactions are rejected.
+//
+// Accepts:
 //   - All non-Payment transactions.
 //   - Payment transactions while the counter is below 100.
 //
-// Rejects:-
+// Rejects:
 //   - Payment transactions when the counter is 100 or above.
-//
 //**************************************************************
 
 #include "hookapi.h"

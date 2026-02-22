@@ -3,15 +3,19 @@
 // Author: @Handy_4ndy
 //
 // Description:
-//   This hook demonstrates how to emit hardcoded IOU token payments to multiple accounts on the Xahau network.
-//   When triggered, it emits two predefined IOU payment transactions to two hardcoded accounts.
+//   Demonstrates how to emit hardcoded IOU token payments to multiple accounts on the Xahau network. When triggered, it emits two predefined IOU payment transactions to two hardcoded accounts.
+//
+// Triggers:
+//   ttPAYMENT (incoming payment of exact amount)
+//
+// Parameters:
+//   Hardcoded: destination accounts, IOU amount, currency, and issuer.
 //
 // Usage:
 //   - Replace the hardcoded accounts, amount, currency, and issuer as needed.
-//   - [Hooks Services](https://hooks.services/tools)
 //   - Deploy this hook to your account.
 //   - Any payment of 10 XAH triggering this hook will cause it to emit the hardcoded IOU events.
-//   - Useful as a template for learning how to use IOU emits to multiple recipients in Xahau Hooks.
+//   - Use [Hooks Services](https://hooks.services/tools) for testing.
 //
 // Accepts:
 //   - Outgoing payments.

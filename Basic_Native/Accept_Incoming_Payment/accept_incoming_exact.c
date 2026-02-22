@@ -3,17 +3,25 @@
 // Author: @Handy_4ndy
 //
 // Description:
-//   This hook accepts incoming XAH payments that match the specified amount (10 XAH), outgoing payments, and incoming IOU payments.
-//   Rejects incoming XAH payments that do not match the exact amount.
+//   Accepts incoming XAH payments that match the specified amount (10 XAH), outgoing payments, and incoming IOU payments. Rejects incoming XAH payments that do not match the exact amount.
 //
-// Accepts:-
+// Triggers:
+//   ttPAYMENT (incoming and outgoing payments)
+//
+// Parameters:
+//   None (amount is hardcoded: 10 XAH)
+//
+// Usage:
+//   - Deploy the hook to your account.
+//   - Incoming XAH payments must match exactly 10 XAH; others are accepted or rejected accordingly.
+//
+// Accepts:
 //   - Incoming XAH payments that match the specified amount (10 XAH).
 //   - Outgoing payments.
 //   - Incoming IOU payments.
 //
-// Rejects:-
+// Rejects:
 //   - Incoming XAH payments that do not match the exact amount.
-//
 //**************************************************************
 
 #include "hookapi.h"

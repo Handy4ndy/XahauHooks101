@@ -3,27 +3,28 @@
 // Author: @Handy_4ndy
 //
 // Description:
-//   This hook increments a counter in state each time a Payment transaction is processed on the hook account.
-//   The counter is stored in hook state under the key 'CNT'.
-//   It counts all Payment transactions (incoming and outgoing).
-//   Additionally, the hook owner can manually update the counter via an Invoke transaction.
+//   Increments a counter in state each time a Payment transaction is processed on the hook account. The counter is stored in hook state under the key 'CNT'. It counts all Payment transactions (incoming and outgoing). The hook owner can also manually update the counter via an Invoke transaction.
 //
-// Parameters:-
-//   - 'CNT' (8 bytes): The new value to set for the counter.
+// Triggers:
+//   ttPAYMENT (increments counter)
+//   ttINVOKE (manual update by owner)
 //
-// Usage:- 
-//   - The hook triggers on Payment transactions, incrementing the counter.
-//   - To manually update the counter: Send an Invoke transaction with 'CNT' parameter (only hook owner).
+// Parameters:
+//   'CNT' (8 bytes): The new value to set for the counter (for manual update).
 //
-// Accepts:-
-//   - Payment transactions (and increments counter).
+// Usage:
+//   - Deploy the hook to your account.
+//   - Payment transactions increment the counter automatically.
+//   - To manually update the counter, send an Invoke transaction with 'CNT' parameter (only hook owner).
+//
+// Accepts:
+//   - Payment transactions (increments counter).
 //   - Invoke transactions from the hook owner with 'CNT' parameter (updates counter).
 //   - Other transaction types (accepts without action).
 //
-// Rejects:-
+// Rejects:
 //   - Invoke transactions not from the hook owner.
-//   - Invoke transactions without valid CNT parameter.
-//
+//   - Invoke transactions without valid 'CNT' parameter.
 //**************************************************************
 
 #include "hookapi.h"

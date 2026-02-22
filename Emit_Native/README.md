@@ -1,106 +1,117 @@
-# Emit_Native Hooks Collection
 
-## About Xahau Hooks 101 — Native Emit
+# Xahau Hooks 101 – Emit_Native Hooks Collection
 
-**Xahau Hooks 101** is a collection of concise, beginner-friendly Xahau Hook examples written in C. This subdirectory demonstrates how to emit native XAH payments from the hook account using various configuration methods: hardcoded values, install-time parameters, or runtime state set via Invoke transactions. Each hook is compiled to WebAssembly (WASM) using the Xahau Hooks Builder starter template and is intended for Testnet experimentation before Mainnet deployment.
+## About This Collection
+
+This directory is part of the **Xahau Hooks 101** educational series. It contains concise, beginner-friendly smart contract (Hook) examples written in C for the Xahau blockchain. These hooks demonstrate how to emit native XAH payments from the hook account using hardcoded values, install-time parameters, or runtime state set via Invoke transactions. All examples are compiled to WebAssembly (WASM) using the [Xahau Hooks Builder](https://builder.xahau.network/develop) and are suitable for Testnet or Mainnet deployment.
 
 See the parent [`Xahau-Hooks-101`](../README.md) for project context.
 
-## Hooks ~ Trigger on ttPAYMENT && ttINVOKE
-
-| File | Description |
-|------|-------------|
-| hardcoded_native_emit.c | Hardcoded emit: emits 1 XAH to a fixed account on incoming payments. |
-| hardcoded_multi_native_emit.c | Hardcoded multi-emit: emits to up to 2 fixed accounts on incoming payments. |
-| install_native_emit.c | Install param emit: emits amount and account set at install time. |
-| install_multi_native_emit.c | Install param multi-emit: emits to multiple accounts configured at install. |
-| invoke_native_emit.c | Invoke-set emit: emits amount/account set via Invoke transaction state. |
-| invoke_multi_native_emit.c | Invoke-set multi-emit: emits to multiple accounts via Invoke-set state. |
-| admin_native_emit.c | Admin-triggered emit: emits from hook account when invoked by admin. |
-
 ## Overview
 
-These hooks illustrate native payment emission patterns:
-- Hardcoded emits for fixed, predictable behavior.
-- Install-time parameters for static configuration.
-- Invoke-set state for dynamic runtime configuration.
-- Multi-account emits for distributing payments.
-- Admin-controlled emits for privileged operations.
+Hooks in this collection demonstrate:
+- Native XAH emission from the hook account
+- Hardcoded, install-time, and invoke-set parameterization
+- Multi-account emission and admin-controlled emission
+- State usage for dynamic configuration
+- Parameter validation, safe state read/write, and emission logic
 
-Typical behaviors:
-- Accepts incoming XAH payments that match configured amounts (for payment-triggered emits).
-- Accepts outgoing payments and IOU payments.
-- Emits native XAH from the hook account using PREPARE_PAYMENT_SIMPLE and emit().
-- Validates parameters and rollbacks on errors with clear messages.
+## Hook Triggers
 
-## Tools
+- **Triggers:**
+  - `ttPAYMENT` (incoming payment triggers XAH emission)
+  - `ttINVOKE` (invoke transactions for admin or state configuration)
+  - Both triggers should be set for full functionality
 
-Use these online tools to work with these hooks—no local setup required:
-- **[Hex visualizer](https://transia-rnd.github.io/xrpl-hex-visualizer/)** and **[Hooks.Services](https://hooks.services/tools)** for conversion.
-- **[Xahau Hooks Builder](https://builder.xahau.network/develop)**: Primary platform for developing, compiling, deploying, and testing hooks on Testnet using the starter template.
-- **[Deploy](https://builder.xahau.network/deploy)**: Deploy and configure hooks on Testnet accounts.
-- **[Test](https://builder.xahau.network/test)**: Create accounts, fund them, and perform transactions directly within the platform.
-- **[XRPLWin Hook Management](https://xahau-testnet.xrplwin.com/)**: Explore Hook executions in detail (Great for Debugging)
-- **[Xahau Explorer](https://test.xahauexplorer.com/en)**: Verify transactions and hook details.
+## Hook List
 
-## Installation & Usage
+| File                        | Purpose/Description |
+|-----------------------------|---------------------|
+| hardcoded_native_emit.c         | Hardcoded emit: emits 1 XAH to a fixed account on incoming payments. |
+| hardcoded_multi_native_emit.c   | Hardcoded multi-emit: emits to up to 2 fixed accounts on incoming payments. |
+| install_native_emit.c           | Install param emit: emits amount and account set at install time. |
+| install_multi_native_emit.c     | Install param multi-emit: emits to multiple accounts configured at install. |
+| invoke_native_emit.c            | Invoke-set emit: emits amount/account set via Invoke transaction state. |
+| invoke_multi_native_emit.c      | Invoke-set multi-emit: emits to multiple accounts via Invoke-set state. |
+| admin_native_emit.c             | Admin-triggered emit: emits from hook account when invoked by admin. |
 
-1. Copy one of the .c hooks into the Hooks Builder starter template and compile to WASM.
-2. Deploy the hook to a Testnet account:
-   - For install-param hooks: provide install parameters (amounts as 8-byte uint64, accounts as 20-byte ACCOUNT_ID).
-   - For invoke-set hooks: deploy without params, then use Invoke to set state.
-   - For hardcoded/admin hooks: deploy as-is.
-3. For payment-triggered hooks: send XAH payments matching configured amounts to trigger emits.
-4. For invoke-triggered hooks: send Invoke transactions to set parameters or trigger emits.
-5. Monitor emitted transactions in the explorer.
+For detailed explanations, see comments in each `.c` file.
 
-Use [Hex visualizer](https://transia-rnd.github.io/xrpl-hex-visualizer/) or [Hooks.Services](https://hooks.services/tools) for conversion.
+## Technical Patterns
 
-Example: install install_native_emit.c with `AMT`: `00000000000F4240` (1 XAH in drops) and `ACC`: account ID.
+- Hardcoded, install-time, and invoke-set parameterization for XAH emission
+- State usage for dynamic configuration (invoke-set hooks)
+- Admin/owner controls for privileged emission (admin_native_emit.c)
+- Multi-account emission with etxn_reserve for multiple transactions
+- Emission logic using PREPARE_PAYMENT_SIMPLE and emit()
+- Parameter validation, safe state handling, and clear rollback messages
 
-## Testing
+## Tools & Resources
 
-- Use Hooks Builder Test to send payments and invokes, and view TRACESTR/TRACEVAR output.
-- Verify emitted transactions appear in the explorer.
-- Test edge cases: insufficient balance, invalid accounts, mismatched amounts.
-- For multi-emit hooks, confirm all configured accounts receive payments.
+- **[Xahau Hooks Builder](https://builder.xahau.network/develop)**: Develop, compile, deploy, and test hooks
+- **[Deploy](https://builder.xahau.network/deploy)**: Deploy and configure hooks on Testnet accounts
+- **[Test](https://builder.xahau.network/test)**: Create accounts, fund them, and perform transactions
+- **[XRPLWin Hook Management](https://xahau-testnet.xrplwin.com/)**: Explore hook executions and manage deployments
+- **[Xahau Explorer](https://test.xahauexplorer.com/en)**: Verify transactions and hook details
+- **[Hex visualizer](https://transia-rnd.github.io/xrpl-hex-visualizer/)** and **[Hooks.Services](https://hooks.services/tools)**: For hex conversion and debugging
 
-## Debugging Tips
+## Testing and Deployment
 
-- Verify Hook triggers have been set correctly (ttPAYMENT & ttINVOKE).
-- Check hook_param/state return lengths — ensure parameters exist and match expected sizes.
-- Use TRACESTR, TRACEHEX, TRACEVAR to log emit preparation and execution.
-- Ensure hook account has sufficient XAH balance for emits.
-- Use etxn_reserve() for multi-emit hooks to reserve transaction slots.
-- If emits fail, check PREPARE_PAYMENT_SIMPLE parameters and account validity.
+1. **Set Up Testnet Account(s) in Hooks Builder**
+   - Create funded accounts in the “Deploy” section: https://builder.xahau.network/deploy
+   - Or in the “Test” section: https://builder.xahau.network/test
 
-## Code Structure
+2. **Prepare the Code**
+   - Go to the “Developer” section: https://builder.xahau.network/develop
+   - Copy the desired `.c` hook code into the Xahau Hooks Builder starter template (delete the template content)
 
-Each hook typically:
-1. Reads configuration (hardcoded, install params, or state).
-2. Handles early accepts for outgoing/IOU payments.
-3. For ttPAYMENT: validates incoming amount and triggers emit.
-4. For ttINVOKE: sets state parameters or triggers admin emits.
-5. Prepares payment with PREPARE_PAYMENT_SIMPLE, reserves with etxn_reserve().
-6. Calls emit() and accept() with success messages, or rollback() on errors.
+3. **Compile**
+   - Click “Compile to WASM”
 
-## Important Notes
+4. **Deploy and Set Triggers**
+   - Go to the “Deploy” section and deploy the hook to an account by clicking “Set Hook”
+   - **Important:** Configure hook triggers for both `ttPAYMENT` and `ttINVOKE`. If you don’t set this, the hook will NOT be triggered!
+   - For install-param hooks: provide install parameters (amounts as 8-byte uint64, accounts as 20-byte ACCOUNT_ID)
+   - For invoke-set hooks: deploy without params, then use Invoke to set state
+   - For hardcoded/admin hooks: deploy as-is
 
-- Emits consume XAH from the hook account — ensure sufficient balance.
-- Use correct byte sizes: 8 bytes for uint64 amounts, 20 bytes for ACCOUNT_ID.
-- Multi-emit hooks require etxn_reserve(N) for N emissions.
-- Test thoroughly on Testnet before deploying to Mainnet.
-- Remove or reduce verbose tracing in production to minimize output and gas usage.
+5. **Test Transactions**
+   - Use the “Test” section in Hooks Builder (or XRPLWin tools) to perform transactions and test hook behavior
 
-## Getting Started
+6. **Verify**
+   - Check results in Hooks Builder logs (TRACESTR/TRACEHEX Debug Stream) and/or in Xahau Explorer
 
-1. Choose a hook (hardcoded, install, invoke, multi, admin).
-2. Compile and install with appropriate parameters.
-3. Test with Payments (or Invokes for admin/state-set hooks) using Hooks Builder Test or XRPLWin tools.
-4. Inspect logs and explorer entries to confirm emitted payments.
+Example: install `install_native_emit.c` with `AMT`: `00000000000F4240` (1 XAH in drops) and `ACC`: account ID.
 
-## Related Collections
+## Testing & Debugging
 
-- See `Basic_Install_Parameters` for install-time configuration patterns.
-- See `Basic_Invoke_Parameters` for invoke→state patterns.
-- See other collections in the repo (Basic_State, Basic_Iou, Basic_Native) for additional examples.
+- Use TRACESTR, TRACEHEX, and TRACEVAR for runtime debugging
+- Check transaction logs and explorer for results
+- **Common pitfalls:**
+  - Parameter length/type mismatches
+  - Missing triggers (hook not firing)
+  - Invalid or missing state access
+  - Permissions/admin/owner errors
+  - Insufficient XAH balance for emits
+  - Not removing debug traces before production
+
+## Code Structure & Best Practices
+
+- Each hook has a clear entry point, parameter validation, and accept/rollback logic
+- Uses safe state handling and clear rollback messages
+- Restricts privileged emission to admin/owner where required
+- Uses correct byte sizes: 8 bytes for uint64 amounts, 20 bytes for ACCOUNT_ID
+- Multi-emit hooks require etxn_reserve(N) for N emissions
+- Remove debug traces before production deployment
+
+## Dependencies
+
+- Requires `hookapi.h` and standard C libraries
+
+## Contributing
+
+This is an open educational resource. Contributions and improvements are welcome!
+
+## License
+
+See the root project LICENSE file for details.

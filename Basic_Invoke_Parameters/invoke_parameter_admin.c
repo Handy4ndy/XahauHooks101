@@ -3,27 +3,29 @@
 // Author: @Handy_4ndy
 //
 // Description:
-//   This hook allows only admin accounts to perform Invoke transactions on the hook account.
-//   The hook owner can set the admin account via Invoke.
-//   Other transactions pass through unchanged.
+//   Allows only admin accounts to perform Invoke transactions on the hook account.
+//   The hook owner can set the admin account via Invoke. Other transactions pass through unchanged.
 //
-// Parameters:-
-//   'A_ACC' (20 byte ACCOUNT_ID): Admin account ID to set in state.
-//   Convert raddress to ACCOUNT_ID (https://hooks.services/tools/raddress-to-accountid)
+// Triggers:
+//   ttINVOKE (Invoke transactions)
+//   Any transaction type (for pass-through logic)
 //
-// Usage:-
+// Parameters:
+//   'A_ACC' (20 bytes): Admin account ID to set in state.
+//   (Convert raddress to ACCOUNT_ID: https://hooks.services/tools/raddress-to-accountid)
+//
+// Usage:
 //   - Invoke from hook owner with 'A_ACC' to set the admin account.
 //   - Admin account sends Invoke transaction; hook accepts.
 //   - Non-admin or non-Invoke transactions pass through.
 //
-// Accepts:-
+// Accepts:
 //   - Invoke transactions from the hook owner with 'A_ACC' parameter to set the account.
 //   - Invoke transactions from the admin account.
 //   - Non-Invoke transactions.
 //
-// Rejects:-
+// Rejects:
 //   - Invoke transactions not from the hook owner or admin account.
-//
 //**************************************************************
 
 #include "hookapi.h"

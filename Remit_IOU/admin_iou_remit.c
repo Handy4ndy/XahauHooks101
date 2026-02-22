@@ -3,9 +3,11 @@
 // Author: @Handy_4ndy
 //
 // Description:
-//   This hook allows a designated admin account to trigger IOU token remit
-//   transactions from the hook account via invoke transactions.
-//   Uses the Remit transaction type for automatic trustline creation.
+//   Allows a designated admin account to trigger IOU token remits from the hook account via invoke transactions. Uses the Remit transaction type for automatic trustline creation.
+//
+// Triggers:
+//   ttINVOKE (admin only)
+//   ttPAYMENT (outgoing only)
 //
 // Parameters:
 //   'ADMIN' (20 bytes): Admin account ID that can trigger remits.
@@ -15,13 +17,8 @@
 // Usage:
 //   - Set 'ADMIN', 'CURRENCY', 'ISSUER' during hook installation.
 //   - Admin sends Invoke with 'AMT' (8 bytes, IOU amount) and 'DEST' (20 bytes, destination account).
-//   - Hook emits Remit transaction from itself to DEST for AMT.
+//   - Emits Remit transaction from hook account to DEST for AMT.
 //   - [Hooks Services](https://hooks.services/tools)
-//
-// Key Benefits of Remit:
-//   ✅ Automatic trustline creation (no pre-setup required)
-//   ✅ Can send to accounts that don't exist yet (account creation)
-//   ✅ Reserves paid by sender, not recipient
 //
 // Accepts:
 //   - Invoke from admin with valid AMT and DEST.

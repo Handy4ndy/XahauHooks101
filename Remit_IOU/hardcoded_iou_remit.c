@@ -3,21 +3,20 @@
 // Author: @Handy_4ndy
 //
 // Description:
-//   This hook demonstrates how to emit a hardcoded IOU token remit on the Xahau network.
-//   When an incoming payment of exact XAH amount is received, it remits a predefined IOU amount.
-//   Uses the Remit transaction type for automatic trustline creation.
+//   Emits a hardcoded IOU token remit on the Xahau network when an incoming payment of exact XAH amount is received. Uses the Remit transaction type for automatic trustline creation.
 //
-// Key Benefits of Remit:
-//   ✅ Automatic trustline creation (no pre-setup required)
-//   ✅ Can send to accounts that don't exist yet (account creation)
-//   ✅ Reserves paid by sender, not recipient
+// Triggers:
+//   ttPAYMENT (incoming, exact amount)
+//
+// Parameters:
+//   Hardcoded: recipient account, IOU amount, currency, issuer.
 //
 // Usage:
 //   - Replace the hardcoded account, amount, currency, and issuer as needed.
+//   - Deploy to your account.
+//   - Any payment of 10 XAH triggers the hardcoded IOU remit.
+//   - Useful as a template for IOU remits in Xahau Hooks.
 //   - [Hooks Services](https://hooks.services/tools)
-//   - Deploy this hook to your account.
-//   - Any payment of 10 XAH triggering this hook will cause it to emit the hardcoded IOU remit.
-//   - Useful as a template for learning how to use IOU remits in Xahau Hooks.
 //
 // Accepts:
 //   - Outgoing transactions.

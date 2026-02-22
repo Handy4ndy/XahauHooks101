@@ -3,9 +3,10 @@
 // Author: @Handy_4ndy
 //
 // Description:
-//   This hook emits a native payment to a user-defined account and amount, set via install parameters.
-//   Accepts outgoing payments and IOU payments.
-//   Only emits when the incoming XAH payment matches the exact amount set by install parameter.
+//   Emits a native XAH payment to a user-defined account and amount, set via install parameters. Only emits when the incoming XAH payment matches the exact amount set by install parameter.
+//
+// Triggers:
+//   ttPAYMENT (incoming payment of exact amount)
 //
 // Parameters:
 //   'AMT_IN' (8 bytes): The exact amount to receive (XAH, uint64_t)
@@ -15,7 +16,7 @@
 // Usage:
 //   - Set 'AMT_IN', 'AMT_OUT', and 'F_ACC' during hook installation.
 //   - Incoming XAH payments must match 'AMT_IN' exactly to trigger the emit to 'F_ACC' for 'AMT_OUT' XAH.
-//   - [Hooks Services](https://hooks.services/tools)
+//   - Use [Hooks Services](https://hooks.services/tools) for testing.
 //
 // Accepts:
 //   - Outgoing payments.

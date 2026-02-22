@@ -3,16 +3,24 @@
 // Author: @Handy_4ndy
 //
 // Description:
-//   This hook rejects outgoing payments and incoming IOU payments.
-//   Accepts incoming XAH payments.
+//   Rejects outgoing payments and incoming IOU payments. Accepts incoming XAH payments.
 //
-// Accepts:-
+// Triggers:
+//   ttPAYMENT (incoming and outgoing payments)
+//
+// Parameters:
+//   None
+//
+// Usage:
+//   - Deploy the hook to your account.
+//   - Incoming XAH payments are accepted; outgoing payments and incoming IOU payments are rejected.
+//
+// Accepts:
 //   - Incoming XAH payments.
 //
-// Rejects:-
+// Rejects:
 //   - Outgoing payments.
 //   - Incoming IOU payments.
-//
 //**************************************************************
 
 #include "hookapi.h"

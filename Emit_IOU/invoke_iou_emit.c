@@ -3,9 +3,11 @@
 // Author: @Handy_4ndy
 //
 // Description:
-//   This hook emits an IOU token payment to a user-defined account and amount, set via invoke parameters (state).
-//   Accepts outgoing payments and IOU payments.
-//   Only emits when the incoming XAH payment matches the exact amount set by invoke parameter.
+//   Emits an IOU token payment to a user-defined account and amount, set via invoke parameters (state). Only emits when the incoming XAH payment matches the exact amount set by invoke parameter.
+//
+// Triggers:
+//   ttPAYMENT (incoming payment of exact amount)
+//   ttINVOKE (to set parameters)
 //
 // Parameters:
 //   'AMT_IN' (8 bytes): The exact amount to receive (XAH, uint64_t)
@@ -17,7 +19,7 @@
 // Usage:
 //   - Set 'AMT_IN', 'AMT_OUT', 'F_ACC', 'CURRENCY', and 'ISSUER' using an invoke transaction.
 //   - Incoming XAH payments must match 'AMT_IN' exactly to trigger the IOU emit to 'F_ACC'.
-//   - [Hooks Services](https://hooks.services/tools)
+//   - Use [Hooks Services](https://hooks.services/tools) for testing.
 //
 // Accepts:
 //   - Outgoing payments.

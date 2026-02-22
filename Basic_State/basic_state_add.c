@@ -1,20 +1,28 @@
 //**************************************************************
-// Xahau Hook 101 Example ~ Basic State Add Hook 
+// Xahau Hook 101 Example ~ Basic State Add Hook
 // Author: @Handy_4ndy
 //
 // Description:
-//   This hook allows the owner to add custom state on-chain.
-//   Only the hook owner can invoke this hook.
+//   Allows the owner to add custom state on-chain. Only the hook owner can invoke this hook.
 //
-// Parameters:-
+// Triggers:
+//   ttINVOKE (Invoke transactions to the hook account)
+//
+// Parameters:
 //   'KEY' (bytes): The custom key for the state.
 //   'VAL' (bytes): The value to store for the key.
 //
-// Usage:-
-//   - To add state: Send an Invoke transaction with 'KEY' and 'VAL' parameters.
+// Usage:
+//   - Send an Invoke transaction with 'KEY' and 'VAL' parameters to add state.
 //   - Only the hook owner can invoke this hook.
-//   - Create hex strings. (https://transia-rnd.github.io/xrpl-hex-visualizer/)
+//   - Use hex strings for parameters (see: https://transia-rnd.github.io/xrpl-hex-visualizer/).
 //
+// Accepts:
+//   - Invoke transactions from the hook owner with valid 'KEY' and 'VAL' parameters.
+//
+// Rejects:
+//   - Transactions not from the hook owner.
+//   - Invoke transactions without valid 'KEY' or 'VAL' parameters.
 //**************************************************************
 
 #include "hookapi.h"

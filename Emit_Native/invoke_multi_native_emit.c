@@ -3,9 +3,11 @@
 // Author: @Handy_4ndy
 //
 // Description:
-//   This hook emits native payments to up to 3 user-defined accounts and amounts, set via invoke parameters.
-//   Accepts outgoing payments and IOU payments.
-//   Only emits when the incoming XAH payment matches the exact amount set by invoke parameter.
+//   Emits native XAH payments to up to 3 user-defined accounts and amounts, set via invoke parameters. Only emits when the incoming XAH payment matches the exact amount set by invoke parameter.
+//
+// Triggers:
+//   ttPAYMENT (incoming payment of exact amount)
+//   ttINVOKE (to set parameters)
 //
 // Parameters:
 //   'AMT_IN' (8 bytes): The exact amount to receive (XAH, uint64_t)
@@ -17,7 +19,7 @@
 // Usage:
 //   - Invoke from hook owner to set 'AMT_IN', 'AMT_OUT', 'F_ACC1', 'F_ACC2', 'F_ACC3'.
 //   - Incoming XAH payments must match 'AMT_IN' exactly to trigger emits to configured recipients for 'AMT_OUT' XAH each.
-//   - [Hooks Services](https://hooks.services/tools)
+//   - Use [Hooks Services](https://hooks.services/tools) for testing.
 //
 // Accepts:
 //   - Invoke transactions from hook owner to set parameters.

@@ -3,10 +3,10 @@
 // Author: @Handy_4ndy
 //
 // Description:
-//   This hook emits IOU token remits to two user-defined accounts and amounts,
-//   set via install parameters. Uses Remit for automatic trustline creation.
-//   Accepts outgoing payments and IOU payments.
-//   Only emits when the incoming XAH payment matches the exact amount.
+//   Emits IOU token remits to two user-defined accounts and amounts, set via install parameters. Uses Remit for automatic trustline creation. Only emits when the incoming XAH payment matches the exact amount.
+//
+// Triggers:
+//   ttPAYMENT (incoming, exact amount)
 //
 // Parameters:
 //   'AMT_IN' (8 bytes): The exact amount to receive (XAH, uint64_t)
@@ -15,10 +15,6 @@
 //   'F_ACC2' (20 bytes): Second recipient account (AccountID)
 //   'CURRENCY' (20 bytes): IOU currency code
 //   'ISSUER' (20 bytes): IOU issuer account
-//
-// Key Benefits of Remit:
-//   ✅ Automatic trustline creation (no pre-setup required)
-//   ✅ Can send to accounts that don't exist yet
 //
 // Usage:
 //   - Set all parameters during hook installation.

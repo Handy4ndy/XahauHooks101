@@ -3,29 +3,31 @@
 // Author: @Handy_4ndy
 //
 // Description:
-//   This hook accepts incoming XAH payments when the amount is above the minimum threshold set by Invoke parameter.
-//   Accepts outgoing payments and incoming IOU payments.
-//   Rejects payments below the minimum amount.
+//   Accepts incoming XAH payments when the amount is above the minimum threshold set by Invoke parameter.
+//   Accepts outgoing payments and incoming IOU payments. Rejects payments below the minimum amount.
 //
-// Parameters:-
+// Triggers:
+//   ttINVOKE (for setting parameter)
+//   ttPAYMENT (incoming and outgoing payments)
+//
+// Parameters:
 //   'MIN' (8 bytes): The minimum allowed amount in XAH (uint64_t) to set in state.
 //
-// Usage:-
+// Usage:
 //   - Invoke from hook owner with 'MIN' to set the amount.
 //   - Incoming XAH payments must be above this amount; others are accepted or rejected accordingly.
 //
-// Accepts:-
+// Accepts:
 //   - Invoke transactions from the hook owner with 'MIN' parameter to set the amount.
 //   - Outgoing payments.
 //   - Incoming IOU payments.
 //   - Incoming XAH payments above the minimum threshold.
 //
-// Rejects:-
+// Rejects:
 //   - Invoke transactions not from the hook owner.
 //   - Invoke transactions without valid MIN.
 //   - Incoming XAH payments below the minimum amount.
 //   - Payment transactions if MIN amount not set in state.
-//
 //**************************************************************
 
 #include "hookapi.h"

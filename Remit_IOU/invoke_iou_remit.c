@@ -3,10 +3,11 @@
 // Author: @Handy_4ndy
 //
 // Description:
-//   This hook emits an IOU token remit to a user-defined account and amount,
-//   set via invoke transaction state. Uses Remit for automatic trustline creation.
-//   Hook owner uses Invoke to set parameters in state.
-//   Incoming payments trigger remit based on state configuration.
+//   Emits an IOU token remit to a user-defined account and amount, set via invoke transaction state. Uses Remit for automatic trustline creation. Incoming payments trigger remit based on state configuration.
+//
+// Triggers:
+//   ttINVOKE (owner sets state)
+//   ttPAYMENT (incoming, exact amount and outgoing only)
 //
 // Parameters (set via Invoke):
 //   'AMT_IN' (8 bytes): The exact amount to receive (XAH, uint64_t)
@@ -14,11 +15,6 @@
 //   'F_ACC' (20 bytes): Recipient account (AccountID)
 //   'CURRENCY' (20 bytes): IOU currency code
 //   'ISSUER' (20 bytes): IOU issuer account
-//
-// Key Benefits of Remit:
-//   ✅ Automatic trustline creation (no pre-setup required)
-//   ✅ Can send to accounts that don't exist yet
-//   ✅ Dynamic configuration via Invoke
 //
 // Usage:
 //   - Owner sends Invoke with desired parameters to set state.

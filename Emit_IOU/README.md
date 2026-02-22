@@ -1,113 +1,118 @@
-# Emit_IOU Hooks Collection
 
-## About Xahau Hooks 101 — IOU Emit
+# Xahau Hooks 101 – Emit_IOU Hooks Collection
 
-**Xahau Hooks 101** is a collection of concise, beginner-friendly Xahau Hook examples written in C. This subdirectory demonstrates how to emit IOU token payments from the hook account using various configuration methods: hardcoded values, install-time parameters, or runtime state set via Invoke transactions. Each hook is compiled to WebAssembly (WASM) using the Xahau Hooks Builder starter template and is intended for Testnet experimentation before Mainnet deployment.
+## About This Collection
+
+This directory is part of the **Xahau Hooks 101** educational series. It contains concise, beginner-friendly smart contract (Hook) examples written in C for the Xahau blockchain. These hooks demonstrate how to emit IOU token payments from the hook account using hardcoded values, install-time parameters, or runtime state set via Invoke transactions. All examples are compiled to WebAssembly (WASM) using the [Xahau Hooks Builder](https://builder.xahau.network/develop) and are suitable for Testnet or Mainnet deployment.
 
 See the parent [`Xahau-Hooks-101`](../README.md) for project context.
 
-## Hooks ~ Trigger on ttPAYMENT && ttINVOKE
-
-| File | Description |
-|------|-------------|
-| hardcoded_iou_emit.c | Hardcoded IOU emit: emits IOU tokens to a fixed account on incoming payments. |
-| hardcoded_multi_iou_emit.c | Hardcoded multi-IOU emit: emits to up to 2 fixed accounts on incoming payments. |
-| install_iou_emit.c | Install param IOU emit: emits amount and account set at install time. |
-| install_multi_iou_emit.c | Install param multi-IOU emit: emits to multiple accounts configured at install. |
-| invoke_iou_emit.c | Invoke-set IOU emit: emits amount/account set via Invoke transaction state. |
-| invoke_multi_iou_emit.c | Invoke-set multi-IOU emit: emits to multiple accounts via Invoke-set state. |
-| admin_iou_emit.c | Admin-triggered IOU emit: emits IOU tokens from hook account when invoked by admin. |
-
 ## Overview
 
-These hooks illustrate IOU token emission patterns:
-- Hardcoded emits for fixed, predictable IOU behavior.
-- Install-time parameters for static IOU configuration.
-- Invoke-set state for dynamic runtime IOU configuration.
-- Multi-account IOU emits for distributing tokens.
-- Admin-controlled IOU emits for privileged token operations.
+Hooks in this collection demonstrate:
+- IOU token emission from the hook account
+- Hardcoded, install-time, and invoke-set parameterization
+- Multi-account IOU emission and admin-controlled emission
+- State usage for dynamic configuration
+- Parameter validation, safe state read/write, and emission logic
 
-Typical behaviors:
-- Accepts incoming XAH payments that match configured amounts (for payment-triggered emits).
-- Accepts outgoing payments and IOU payments.
-- Emits IOU tokens from the hook account using `PREPARE_PAYMENT_SIMPLE_TRUSTLINE` and `float_sto` for XFL-encoded amounts.
-- Validates parameters and rollbacks on errors with clear messages.
+## Hook Triggers
 
-## Tools
+- **Triggers:**
+  - `ttPAYMENT` (incoming payment triggers IOU emission)
+  - `ttINVOKE` (invoke transactions for admin or state configuration)
+  - Both triggers should be set for full functionality
 
-Use these online tools to work with these hooks—no local setup required:
-- **[Hex visualizer](https://transia-rnd.github.io/xrpl-hex-visualizer/)** and **[Hooks.Services](https://hooks.services/tools)** for conversion.
-- **[Xahau Hooks Builder](https://builder.xahau.network/develop)**: Primary platform for developing, compiling, deploying, and testing hooks on Testnet using the starter template.
-- **[Deploy](https://builder.xahau.network/deploy)**: Deploy and configure hooks on Testnet accounts.
-- **[Test](https://builder.xahau.network/test)**: Create accounts, fund them, and perform transactions directly within the platform.
-- **[XRPLWin Hook Management](https://xahau-testnet.xrplwin.com/)**: Explore Hook executions in detail (Great for Debugging)
-- **[Xahau Explorer](https://test.xahauexplorer.com/en)**: Verify transactions and hook details.
+## Hook List
 
-## Installation & Usage
+| File                        | Purpose/Description |
+|-----------------------------|---------------------|
+| hardcoded_iou_emit.c        | Hardcoded IOU emit: emits IOU tokens to a fixed account on incoming payments. |
+| hardcoded_multi_iou_emit.c  | Hardcoded multi-IOU emit: emits to up to 2 fixed accounts on incoming payments. |
+| install_iou_emit.c          | Install param IOU emit: emits amount and account set at install time. |
+| install_multi_iou_emit.c    | Install param multi-IOU emit: emits to multiple accounts configured at install. |
+| invoke_iou_emit.c           | Invoke-set IOU emit: emits amount/account set via Invoke transaction state. |
+| invoke_multi_iou_emit.c     | Invoke-set multi-IOU emit: emits to multiple accounts via Invoke-set state. |
+| admin_iou_emit.c            | Admin-triggered IOU emit: emits IOU tokens from hook account when invoked by admin. |
 
-1. Copy one of the .c hooks into the Hooks Builder starter template and compile to WASM.
-2. Deploy the hook to a Testnet account:
-   - For install-param hooks: provide install parameters (amounts as 8-byte uint64, accounts as 20-byte ACCOUNT_ID, currency/issuer as 20-byte).
-   - For invoke-set hooks: deploy without params, then use Invoke to set state.
-   - For hardcoded/admin hooks: deploy as-is.
-3. For payment-triggered hooks: send XAH payments matching configured amounts to trigger IOU emits.
-4. For invoke-triggered hooks: send Invoke transactions to set parameters or trigger IOU emits.
-5. Monitor emitted IOU transactions in the explorer.
+For detailed explanations, see comments in each `.c` file.
 
-Use [Hex visualizer](https://transia-rnd.github.io/xrpl-hex-visualizer/) or [Hooks.Services](https://hooks.services/tools) for conversion.
+## Technical Patterns
 
-Example: install install_iou_emit.c with `AMT_IN`: `000000000000000A` (10 XAH), `AMT_OUT`: `00000000000003E8` (1000 IOU), `F_ACC`: account ID, `CURRENCY`: "XPN" padded, `ISSUER`: issuer account.
+- Hardcoded, install-time, and invoke-set parameterization for IOU emission
+- State usage for dynamic configuration (invoke-set hooks)
+- Admin/owner controls for privileged emission (admin_iou_emit.c)
+- Multi-account emission with etxn_reserve for multiple transactions
+- Emission logic using `PREPARE_PAYMENT_SIMPLE_TRUSTLINE` and XFL-encoded amounts
+- Parameter validation, safe state handling, and clear rollback messages
 
-## Testing
+## Tools & Resources
 
-- Use Hooks Builder Test to send payments and invokes, and view TRACESTR/TRACEVAR output.
-- Verify emitted IOU transactions appear in the explorer.
-- Test edge cases: insufficient token balance, invalid accounts, mismatched amounts.
-- For multi-emit hooks, confirm all configured accounts receive IOU tokens.
+- **[Xahau Hooks Builder](https://builder.xahau.network/develop)**: Develop, compile, deploy, and test hooks
+- **[Deploy](https://builder.xahau.network/deploy)**: Deploy and configure hooks on Testnet accounts
+- **[Test](https://builder.xahau.network/test)**: Create accounts, fund them, and perform transactions
+- **[XRPLWin Hook Management](https://xahau-testnet.xrplwin.com/)**: Explore hook executions and manage deployments
+- **[Xahau Explorer](https://test.xahauexplorer.com/en)**: Verify transactions and hook details
+- **[Hex visualizer](https://transia-rnd.github.io/xrpl-hex-visualizer/)** and **[Hooks.Services](https://hooks.services/tools)**: For hex conversion and debugging
 
-## Debugging Tips
+## Testing and Deployment
 
-- Verify Hook triggers have been set correctly (ttPAYMENT & ttINVOKE).
-- Check hook_param/state return lengths — ensure parameters exist and match expected sizes.
-- Use TRACESTR, TRACEHEX, TRACEVAR to log IOU amount serialization and emit preparation.
-- Ensure hook account has sufficient IOU token balance for emits.
-- Use etxn_reserve() for multi-emit hooks to reserve transaction slots.
-- Check `float_sto` return value — ensure XFL amount serialization succeeds (uses 49-byte buffer).
-- If IOU emits fail, check PREPARE_PAYMENT_SIMPLE_TRUSTLINE parameters and 48-byte amount buffer validity.
+1. **Set Up Testnet Account(s) in Hooks Builder**
+   - Create funded accounts in the “Deploy” section: https://builder.xahau.network/deploy
+   - Or in the “Test” section: https://builder.xahau.network/test
 
-## Code Structure
+2. **Prepare the Code**
+   - Go to the “Developer” section: https://builder.xahau.network/develop
+   - Copy the desired `.c` hook code into the Xahau Hooks Builder starter template (delete the template content)
 
-Each hook typically:
-1. Reads IOU configuration (hardcoded, install params, or state).
-2. Handles early accepts for outgoing/IOU payments.
-3. For ttPAYMENT: validates incoming amount and triggers IOU emit.
-4. For ttINVOKE: sets state parameters or triggers admin IOU emits.
-5. Converts uint64 amount to XFL format using `float_set`.
-6. Serializes IOU amount buffer using `float_sto` with 49-byte buffer and currency/issuer.
-7. Prepares IOU payment with `PREPARE_PAYMENT_SIMPLE_TRUSTLINE`, reserves with `etxn_reserve()`.
-8. Calls `emit()` and `accept()` with success messages, or `rollback()` on errors.
+3. **Compile**
+   - Click “Compile to WASM”
 
-## Important Notes
+4. **Deploy and Set Triggers**
+   - Go to the “Deploy” section and deploy the hook to an account by clicking “Set Hook”
+   - **Important:** Configure hook triggers for both `ttPAYMENT` and `ttINVOKE`. If you don’t set this, the hook will NOT be triggered!
+   - For install-param hooks: provide install parameters (amounts as 8-byte uint64, accounts as 20-byte ACCOUNT_ID, currency/issuer as 20-byte)
+   - For invoke-set hooks: deploy without params, then use Invoke to set state
+   - For hardcoded/admin hooks: deploy as-is
 
-- IOU emits consume tokens from the hook account — ensure sufficient balance.
-- Use correct byte sizes: 8 bytes for uint64 amounts, 20 bytes for ACCOUNT_ID and currency/issuer.
-- Multi-emit hooks require etxn_reserve(N) for N emissions.
-- Test thoroughly on Testnet before deploying to Mainnet.
-- Remove or reduce verbose tracing in production to minimize output and gas usage.
+5. **Test Transactions**
+   - Use the “Test” section in Hooks Builder (or XRPLWin tools) to perform transactions and test hook behavior
 
-## Getting Started
+6. **Verify**
+   - Check results in Hooks Builder logs (TRACESTR/TRACEHEX Debug Stream) and/or in Xahau Explorer
 
-1. Choose a hook (hardcoded, install, invoke, multi, admin).
-2. Compile and install with appropriate IOU parameters.
-3. Test with Payments (or Invokes for admin/state-set hooks) using Hooks Builder Test or XRPLWin tools.
-4. Inspect logs and explorer entries to confirm emitted IOU payments.
+Example: install `install_iou_emit.c` with `AMT_IN`: `000000000000000A` (10 XAH), `AMT_OUT`: `00000000000003E8` (1000 IOU), `F_ACC`: account ID, `CURRENCY`: "XPN" padded, `ISSUER`: issuer account.
 
-## Related Collections
+## Testing & Debugging
 
-- See `Basic_Install_Parameters` for install-time configuration patterns.
-- See `Basic_Invoke_Parameters` for invoke→state patterns.
-- See `Native_Emit` for XAH payment emission examples.
-- See other collections in the repo (Basic_State, Basic_Iou, Basic_Native) for additional examples.
+- Use TRACESTR, TRACEHEX, and TRACEVAR for runtime debugging
+- Check transaction logs and explorer for results
+- **Common pitfalls:**
+  - Parameter length/type mismatches
+  - Missing triggers (hook not firing)
+  - Invalid or missing state access
+  - Permissions/admin/owner errors
+  - Insufficient IOU token balance for emits
+  - Not removing debug traces before production
 
----</content>
+## Code Structure & Best Practices
+
+- Each hook has a clear entry point, parameter validation, and accept/rollback logic
+- Uses safe state handling and clear rollback messages
+- Restricts privileged emission to admin/owner where required
+- Uses correct byte sizes: 8 bytes for uint64 amounts, 20 bytes for ACCOUNT_ID and currency/issuer
+- Multi-emit hooks require etxn_reserve(N) for N emissions
+- Remove debug traces before production deployment
+
+## Dependencies
+
+- Requires `hookapi.h` and standard C libraries
+
+## Contributing
+
+This is an open educational resource. Contributions and improvements are welcome!
+
+## License
+
+See the root project LICENSE file for details.
 <parameter name="filePath">/home/handy/Documents/devwork/XahauHooks101/IOU_Emit/README.md

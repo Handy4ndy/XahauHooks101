@@ -3,21 +3,15 @@
 // Author: @Handy_4ndy
 //
 // Description:
-//   This hook mints multiple numbered URITokens on incoming payments using a
-//   sequential numbering system. Hook owner uses Invoke to set the URI prefix,
-//   total count, and mint batch size. Each payment mints multiple sequential URITokens.
+//   Mints multiple numbered URITokens on incoming payments using a sequential numbering system. Hook owner uses Invoke to set the URI prefix, total count, and mint batch size. Each payment mints multiple sequential URITokens.
+//
+// Triggers:
+//   ttINVOKE (for setting parameters)
 //
 // Parameters (set via Invoke):
 //   'PREFIX' (variable length): The URI prefix (e.g., "ipfs://hash/")
 //   'COUNT' (8 bytes): Number of NFTs available to mint (uint64_t)
 //   'MINT' (8 bytes): Number of NFTs to mint per payment (1-5, default 1)
-//
-// Key Benefits of Multi Sequential Minting:
-//   ✅ Batch minting for efficiency (up to 5 NFTs per payment)
-//   ✅ Automatic sequential numbering (000001, 000002, etc.)
-//   ✅ Dynamic configuration via Invoke
-//   ✅ Controlled NFT supply management
-//   ✅ Professional .json suffix for metadata
 //
 // Usage:
 //   - Owner sends Invoke with PREFIX, COUNT, and MINT to configure the hook.
@@ -25,6 +19,14 @@
 //   - Each URIToken follows format: {PREFIX}{000001-999999}.json
 //   - [Hooks Services](https://hooks.services/tools)
 //
+// Accepts:
+//   - Invoke from owner to set parameters
+//   - Incoming payments (mints URITokens)
+//   - Outgoing payments
+//
+// Rejects:
+//   - Invoke from non-owner
+//   - Payments if required parameters are missing or invalid
 //**************************************************************
 #include "hookapi.h"
 

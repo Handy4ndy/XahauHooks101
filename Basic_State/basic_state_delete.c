@@ -3,27 +3,29 @@
 // Author: @Handy_4ndy
 //
 // Description:
-//   This hook allows the owner to add or delete notes on-chain.
-//   Only the hook owner can invoke this hook.
+//   Allows the owner to add or delete notes on-chain. Only the hook owner can invoke this hook.
 //
-// Parameters:-
+// Triggers:
+//   ttINVOKE (Invoke transactions to the hook account)
+//
+// Parameters:
 //   'VAL' (bytes): The note to add. If present, a new note is stored.
 //   'DEL' (8 bytes): The note number to delete. If present, deletes the note with this number.
 //   'CNT' (8 bytes, state): Counter for the number of notes stored (managed by the hook).
 //
-// Usage:-
+// Usage:
 //   - To add a note: Send an Invoke transaction with 'VAL' parameter.
 //   - To delete a note: Send an Invoke transaction with 'DEL' parameter (8-byte note number).
+//   - Only the hook owner can invoke this hook.
 //
-// Accepts:-
+// Accepts:
 //   - Invoke transactions from the hook owner with 'VAL' parameter to add a note.
 //   - Invoke transactions from the hook owner with 'DEL' parameter to delete a note.
 //
-// Rejects:-
+// Rejects:
 //   - Transactions not from the hook owner.
 //   - Non-Invoke transactions.
-//   - Invoke transactions without valid VAL or DEL.
-//
+//   - Invoke transactions without valid 'VAL' or 'DEL' parameters.
 //**************************************************************
 
 #include "hookapi.h"

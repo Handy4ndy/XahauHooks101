@@ -3,12 +3,24 @@
 // Author: @Handy_4ndy
 //
 // Description:
-//   This hook accepts all incoming payments and all outgoing payments.
+//   Accepts all incoming and outgoing payments.
 //
-// Accepts:-
+// Triggers:
+//   ttPAYMENT (incoming and outgoing payments)
+//
+// Parameters:
+//   None
+//
+// Usage:
+//   - Deploy the hook to your account.
+//   - All incoming and outgoing payments will be accepted.
+//
+// Accepts:
 //   - All incoming payments.
 //   - All outgoing payments.
 //
+// Rejects:
+//   None
 //**************************************************************
 
 

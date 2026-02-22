@@ -3,9 +3,10 @@
 // Author: @Handy_4ndy
 //
 // Description:
-//   This hook emits IOU token payments to two user-defined accounts and amounts, set via install parameters.
-//   Accepts outgoing payments and IOU payments.
-//   Only emits when the incoming XAH payment matches the exact amount set by install parameter.
+//   Emits IOU token payments to two user-defined accounts and amounts, set via install parameters. Only emits when the incoming XAH payment matches the exact amount set by install parameter.
+//
+// Triggers:
+//   ttPAYMENT (incoming payment of exact amount)
 //
 // Parameters:
 //   'AMT_IN' (8 bytes): The exact amount to receive (XAH, uint64_t)
@@ -18,7 +19,7 @@
 // Usage:
 //   - Set 'AMT_IN', 'AMT_OUT', 'F_ACC1', 'F_ACC2', 'CURRENCY', and 'ISSUER' during hook installation.
 //   - Incoming XAH payments must match 'AMT_IN' exactly to trigger IOU emits to both recipients.
-//   - [Hooks Services](https://hooks.services/tools)
+//   - Use [Hooks Services](https://hooks.services/tools) for testing.
 //
 // Accepts:
 //   - Outgoing payments.

@@ -3,24 +3,25 @@
 // Author: @Handy_4ndy
 //
 // Description:
-//   This hook mints URITokens on incoming payments using a
-//   fixed, hardcoded URI embedded in the code. Simplest form
-//   of URI minting with no parameters required.
+//   Mints URITokens on incoming payments using a fixed, hardcoded URI embedded in the code. No parameters required.
+//
+// Triggers:
+//   ttPAYMENT (incoming)
 //
 // Parameters:
-//   None - URI is hardcoded in the source code
-//
-// Key Benefits of Hardcoded URI Minting:
-//   ✅ Simplest deployment (no parameters needed)
-//   ✅ Fixed URI guarantees consistent metadata
-//   ✅ Immediate functionality after hook installation
-//   ✅ Perfect for single-URI proof-of-concept projects
+//   Hardcoded: URI in the source code
 //
 // Usage:
 //   - Modify the hardcoded URI in source code before compilation.
-//   - Deploy hook without any parameters.
+//   - Deploy without any parameters.
 //   - Incoming payments automatically mint URITokens.
 //
+// Accepts:
+//   - Incoming payments (mints URITokens)
+//   - Outgoing payments
+//
+// Rejects:
+//   - Payments if hardcoded URI is invalid
 //**************************************************************
 #include "hookapi.h"
 

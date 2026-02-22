@@ -3,15 +3,19 @@
 // Author: @Handy_4ndy
 //
 // Description:
-//   This hook demonstrates how to emit hardcoded native events to multiple accounts on the Xahau network.
-//   When triggered, it emits two predefined payment transactions to two hardcoded accounts.
+//   Demonstrates how to emit hardcoded native XAH payments to multiple accounts on the Xahau network. When triggered, it emits two predefined payment transactions to two hardcoded accounts.
+//
+// Triggers:
+//   ttPAYMENT (incoming payment of exact amount)
+//
+// Parameters:
+//   Hardcoded: destination accounts and XAH amount.
 //
 // Usage:
 //   - Replace the hardcoded accounts and amount as needed.
-//   - [Hooks Services](https://hooks.services/tools)
 //   - Deploy this hook to your account.
 //   - Any payment of 10 XAH triggering this hook will cause it to emit the hardcoded events.
-//   - Useful as a template for learning how to use emits to multiple recipients in Xahau Hooks.
+//   - Use [Hooks Services](https://hooks.services/tools) for testing.
 //
 // Accepts:
 //   - Outgoing payments.

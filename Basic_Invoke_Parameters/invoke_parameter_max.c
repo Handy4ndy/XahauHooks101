@@ -3,29 +3,31 @@
 // Author: @Handy_4ndy
 //
 // Description:
-//   This hook accepts incoming XAH payments when the amount is below the maximum threshold set by Invoke parameter.
-//   Accepts outgoing payments and incoming IOU payments.
-//   Rejects incoming payments above the maximum amount.
+//   Accepts incoming XAH payments when the amount is below the maximum threshold set by Invoke parameter.
+//   Accepts outgoing payments and incoming IOU payments. Rejects incoming payments above the maximum amount.
 //
-// Parameters:-
+// Triggers:
+//   ttINVOKE (for setting parameter)
+//   ttPAYMENT (incoming and outgoing payments)
+//
+// Parameters:
 //   'MAX' (8 bytes): The maximum allowed amount in XAH (uint64_t) to set in state.
 //
-// Usage:-
+// Usage:
 //   - Invoke from hook owner with 'MAX' to set the amount.
 //   - Incoming XAH payments must be below this amount; others are accepted or rejected accordingly.
 //
-// Accepts:-
+// Accepts:
 //   - Invoke transactions from the hook owner with 'MAX' parameter to set the amount.
 //   - Outgoing payments.
 //   - Incoming IOU payments.
 //   - Incoming XAH payments below the maximum threshold.
 //
-// Rejects:-
+// Rejects:
 //   - Invoke transactions not from the hook owner.
 //   - Invoke transactions without valid MAX.
 //   - Incoming XAH payments above the maximum amount.
 //   - Payment transactions if MAX amount not set in state.
-//
 //**************************************************************
 
 #include "hookapi.h"

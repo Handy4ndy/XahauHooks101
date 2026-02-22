@@ -1,14 +1,27 @@
-/* 
- * Xahau-Hooks-101 ~ accept_outgoing_xah.c
- *
- * Accepts:- 
- * Outgoing XAH payments.
- * Incoming payments.
- * 
- * Rejects:-
- * Outgoing IOU payments.
- * 
- */
+//**************************************************************
+// Xahau Hook 101 Example ~ Accept Outgoing XAH Hook
+// Author: @Handy_4ndy
+//
+// Description:
+//   Accepts outgoing XAH payments and incoming payments. Rejects outgoing IOU payments.
+//
+// Triggers:
+//   ttPAYMENT (incoming and outgoing payments)
+//
+// Parameters:
+//   None
+//
+// Usage:
+//   - Deploy the hook to your account.
+//   - Outgoing XAH payments and incoming payments are accepted; outgoing IOU payments are rejected.
+//
+// Accepts:
+//   - Outgoing XAH payments.
+//   - Incoming payments.
+//
+// Rejects:
+//   - Outgoing IOU payments.
+//**************************************************************
 
 #include "hookapi.h"
 

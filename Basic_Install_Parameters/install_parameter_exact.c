@@ -3,25 +3,26 @@
 // Author: @Handy_4ndy
 //
 // Description:
-//   This hook accepts incoming XAH payments that match the exact amount set by install parameter.
-//   Accepts outgoing payments and IOU payments.
-//   Rejects if the payment amount doesn't match.
+//   Accepts incoming XAH payments that match the exact amount set by install parameter.
+//   Accepts outgoing payments and IOU payments. Rejects if the payment amount doesn't match.
 //
-// Parameters:-
+// Triggers:
+//   ttPAYMENT (incoming and outgoing payments)
+//
+// Parameters:
 //   'EXACT' (8 bytes): The exact amount in XAH (uint64_t).
 //
-// Usage:-
+// Usage:
 //   - Set 'EXACT' to the required XAH amount during hook installation.
 //   - Incoming XAH payments must match exactly; others are accepted or rejected accordingly.
 //
-// Accepts:-
+// Accepts:
 //   - Outgoing payments.
 //   - Incoming IOU payments.
 //   - Incoming XAH payments that match the exact amount set by install parameter.
 //
-// Rejects:-
+// Rejects:
 //   - Incoming XAH payments that do not match the exact amount.
-//
 //**************************************************************
 
 #include "hookapi.h"

@@ -3,26 +3,27 @@
 // Author: @Handy_4ndy
 //
 // Description:
-//   This hook accepts incoming XAH payments that are a multiple of the fixed XAH amount set by install parameter.
-//   Accepts outgoing payments and incoming IOU payments.
-//   Rejects if the payment is less than the fixed amount or not a multiple.
+//   Accepts incoming XAH payments that are a multiple of the fixed XAH amount set by install parameter.
+//   Accepts outgoing payments and incoming IOU payments. Rejects if the payment is less than the fixed amount or not a multiple.
 //
-// Parameters:-
+// Triggers:
+//   ttPAYMENT (incoming and outgoing payments)
+//
+// Parameters:
 //   'MULTI' (8 bytes): The fixed amount in XAH (uint64_t) that payments must be a multiple of.
 //
-// Usage:-
+// Usage:
 //   - Set 'MULTI' to the required XAH amount during hook installation.
 //   - Incoming XAH payments must be multiples of this amount; others are accepted or rejected accordingly.
 //
-// Accepts:-
+// Accepts:
 //   - Outgoing payments.
 //   - Incoming IOU payments.
 //   - Incoming XAH payments that are a multiple of the fixed amount.
 //
-// Rejects:-
+// Rejects:
 //   - Incoming XAH payments that are less than the fixed amount.
 //   - Incoming XAH payments that are not a multiple of the fixed amount.
-//
 //**************************************************************
 
 #include "hookapi.h"

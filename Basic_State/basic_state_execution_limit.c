@@ -3,17 +3,25 @@
 // Author: @Handy_4ndy
 //
 // Description:
-//   This hook enforces an execution limit by decrementing a counter in state each time a Payment transaction is processed on the hook account.
-//   The counter starts at a hardcoded value of 5 and decreases by 1 for each Payment transaction.
-//   Once the counter reaches 0, further Payment transactions are rejected.
+//   Enforces an execution limit by decrementing a counter in state each time a Payment transaction is processed on the hook account. The counter starts at a hardcoded value of 5 and decreases by 1 for each Payment transaction. Once the counter reaches 0, further Payment transactions are rejected.
 //
-// Accepts:-
+// Triggers:
+//   ttPAYMENT (incoming and outgoing payments)
+//
+// Parameters:
+//   None (counter is managed internally)
+//
+// Usage:
+//   - Deploy the hook to your account.
+//   - Each Payment transaction decrements the counter.
+//   - When the counter reaches 0, further Payment transactions are rejected.
+//
+// Accepts:
 //   - All non-Payment transactions.
 //   - Payment transactions while the counter is above 0.
 //
-// Rejects:-
+// Rejects:
 //   - Payment transactions when the counter is 0 or below.
-//
 //**************************************************************
 
 #include "hookapi.h"

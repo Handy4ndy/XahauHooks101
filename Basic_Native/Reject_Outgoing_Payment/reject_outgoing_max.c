@@ -3,17 +3,25 @@
 // Author: @Handy_4ndy
 //
 // Description:
-//   This hook rejects incoming payments, outgoing XAH payments above the maximum threshold (100 XAH), and outgoing IOU payments.
-//   Accepts outgoing XAH payments below the maximum threshold.
+//   Rejects incoming payments, outgoing XAH payments greater than the specified amount (10 XAH), and outgoing IOU payments. Accepts outgoing XAH payments less than or equal to the specified amount.
 //
-// Accepts:-
-//   - Outgoing XAH payments below the maximum threshold.
+// Triggers:
+//   ttPAYMENT (incoming and outgoing payments)
 //
-// Rejects:-
+// Parameters:
+//   None (amount is hardcoded: 10 XAH)
+//
+// Usage:
+//   - Deploy the hook to your account.
+//   - Outgoing XAH payments less than or equal to 10 XAH are accepted; others are rejected accordingly.
+//
+// Accepts:
+//   - Outgoing XAH payments less than or equal to the specified amount.
+//
+// Rejects:
 //   - Incoming payments.
-//   - Outgoing XAH payments above the maximum threshold (100 XAH).
+//   - Outgoing XAH payments greater than the specified amount (10 XAH).
 //   - Outgoing IOU payments.
-//
 //**************************************************************
 
 #include "hookapi.h"

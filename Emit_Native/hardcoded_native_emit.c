@@ -3,15 +3,19 @@
 // Author: @Handy_4ndy
 //
 // Description:
-//   This hook demonstrates how to emit a hardcoded native event on the Xahau network.
-//   When triggered, it emits a predefined event regardless of transaction parameters.
+//   Demonstrates how to emit a hardcoded native XAH payment on the Xahau network. When triggered, it emits a predefined event regardless of transaction parameters.
+//
+// Triggers:
+//   ttPAYMENT (incoming payment of exact amount)
+//
+// Parameters:
+//   Hardcoded: destination account and XAH amount.
 //
 // Usage:
 //   - Replace the hardcoded account and amount as needed.
-//   - [Hooks Services](https://hooks.services/tools)
 //   - Deploy this hook to your account.
 //   - Any payment of 10 XAH triggering this hook will cause it to emit the hardcoded event.
-//   - Useful as a template for learning how to use emits in Xahau Hooks.
+//   - Use [Hooks Services](https://hooks.services/tools) for testing.
 //
 // Accepts:
 //   - Outgoing payments.

@@ -3,17 +3,25 @@
 // Author: @Handy_4ndy
 //
 // Description:
-//   This hook rejects outgoing payments, incoming XAH payments that are not multiples of the fixed amount (10 XAH), and incoming IOU payments.
-//   Accepts incoming XAH payments that are multiples of the fixed amount.
+//   Rejects outgoing payments, incoming XAH payments that are not multiples of the fixed amount (10 XAH), and incoming IOU payments. Accepts incoming XAH payments that are multiples of the fixed amount.
 //
-// Accepts:-
+// Triggers:
+//   ttPAYMENT (incoming and outgoing payments)
+//
+// Parameters:
+//   None (fixed amount is hardcoded: 10 XAH)
+//
+// Usage:
+//   - Deploy the hook to your account.
+//   - Incoming XAH payments that are multiples of 10 XAH are accepted; others are rejected accordingly.
+//
+// Accepts:
 //   - Incoming XAH payments that are multiples of the fixed amount.
 //
-// Rejects:-
+// Rejects:
 //   - Outgoing payments.
 //   - Incoming XAH payments that are not multiples of the fixed amount (10 XAH).
 //   - Incoming IOU payments.
-//
 //**************************************************************
 
 #include "hookapi.h"

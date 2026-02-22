@@ -3,18 +3,13 @@
 // Author: @Handy_4ndy
 //
 // Description:
-//   This hook mints a URIToken on incoming payments using a
-//   URI defined at installation time. Simple, fixed URI minting
-//   for consistent NFT creation with predefined metadata.
+//   Mints a URIToken on incoming payments using a URI defined at installation time. Simple, fixed URI minting for consistent NFT creation with predefined metadata.
+//
+// Triggers:
+//   ttPAYMENT (incoming)
 //
 // Parameters (set at Install):
 //   'URI' (variable length): The URI for the token to be minted
-//
-// Key Benefits of Install URI Minting:
-//   ✅ Simple setup with fixed URI at installation
-//   ✅ Consistent NFT metadata for all minted tokens
-//   ✅ No dynamic configuration needed
-//   ✅ Immediate minting on payment receipt
 //
 // Usage:
 //   - Set URI parameter during hook installation.
@@ -22,6 +17,12 @@
 //   - Perfect for single-collection NFT projects.
 //   - [Hooks Services](https://hooks.services/tools)
 //
+// Accepts:
+//   - Incoming payments (mints URITokens)
+//   - Outgoing payments
+//
+// Rejects:
+//   - Payments if required URI is missing or invalid
 //**************************************************************
 #include "hookapi.h"
 

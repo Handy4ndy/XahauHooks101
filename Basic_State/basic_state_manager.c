@@ -3,30 +3,31 @@
 // Author: @Handy_4ndy
 //
 // Description:
-//   This hook allows the owner to add, update, or delete state entries on-chain.
-//   Only the hook owner can invoke this hook.
-//   A counter tracks the number of entries.
+//   Allows the owner to add, update, or delete state entries on-chain. Only the hook owner can invoke this hook. A counter tracks the number of entries.
 //
-// Parameters:-
+// Triggers:
+//   ttINVOKE (Invoke transactions to the hook account)
+//
+// Parameters:
 //   'VAL' (bytes): The value to add (new entry) or update (if 'UPD' is also provided).
 //   'UPD' (8 bytes): The key to update (must exist; replaces with 'VAL').
 //   'DEL' (8 bytes): The key to delete.
 //
-// Usage:-
+// Usage:
 //   - To add: Send Invoke with 'VAL' parameter.
 //   - To update: Send Invoke with 'UPD' (key) and 'VAL' (new value).
 //   - To delete: Send Invoke with 'DEL' (key).
+//   - Only the hook owner can invoke this hook.
 //
-// Accepts:-
+// Accepts:
 //   - Invoke transactions from the hook owner with 'VAL' parameter to add a new entry.
 //   - Invoke transactions from the hook owner with 'UPD' and 'VAL' parameters to update an existing entry.
 //   - Invoke transactions from the hook owner with 'DEL' parameter to delete an entry.
 //
-// Rejects:-
+// Rejects:
 //   - Transactions not from the hook owner.
 //   - Non-Invoke transactions.
 //   - Invoke transactions without valid parameters.
-//
 //**************************************************************
 
 #include "hookapi.h"

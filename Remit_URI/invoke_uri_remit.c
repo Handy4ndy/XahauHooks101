@@ -3,19 +3,14 @@
 // Author: @Handy_4ndy
 //
 // Description:
-//   This hook mints numbered URITokens on incoming payments using a
-//   sequential numbering system. Hook owner uses Invoke to set the URI prefix
-//   and total count. Each payment mints the next URIToken until depleted.
+//   Mints numbered URITokens on incoming payments using a sequential numbering system. Hook owner uses Invoke to set the URI prefix and total count. Each payment mints the next URIToken until depleted.
+//
+// Triggers:
+//   ttINVOKE (for setting parameters)
 //
 // Parameters (set via Invoke):
 //   'PREFIX' (variable length): The URI prefix (e.g., "ipfs://hash/")
 //   'COUNT' (8 bytes): Number of NFTs available to mint (uint64_t)
-//
-// Key Benefits of Sequential Minting:
-//   ✅ Automatic sequential numbering (000001, 000002, etc.)
-//   ✅ Dynamic configuration via Invoke
-//   ✅ Controlled NFT supply management
-//   ✅ Professional .json suffix for metadata
 //
 // Usage:
 //   - Owner sends Invoke with PREFIX and COUNT to configure the hook.
@@ -23,6 +18,14 @@
 //   - Each URIToken follows format: {PREFIX}{000001-999999}.json
 //   - [Hooks Services](https://hooks.services/tools)
 //
+// Accepts:
+//   - Invoke from owner to set parameters
+//   - Incoming payments (mints URITokens)
+//   - Outgoing payments
+//
+// Rejects:
+//   - Invoke from non-owner
+//   - Payments if required parameters are missing or invalid
 //**************************************************************
 #include "hookapi.h"
 

@@ -3,22 +3,20 @@
 // Author: @Handy_4ndy
 //
 // Description:
-//   This hook demonstrates how to emit hardcoded IOU token remits to multiple accounts.
-//   When an incoming payment of exact XAH amount is received, it remits two IOUs.
-//   Uses the Remit transaction type with multiple AmountEntry objects.
+//   Emits hardcoded IOU token remits to multiple accounts when an incoming payment of exact XAH amount is received. Uses the Remit transaction type with multiple AmountEntry objects.
 //
-// Key Benefits of Remit:
-//   ✅ Automatic trustline creation (no pre-setup required)
-//   ✅ Can send to accounts that don't exist yet (account creation)
-//   ✅ Can send multiple currencies in a single transaction
-//   ✅ Reserves paid by sender, not recipient
+// Triggers:
+//   ttPAYMENT (incoming, exact amount)
+//
+// Parameters:
+//   Hardcoded: recipient accounts, IOU amounts, currency, issuer.
 //
 // Usage:
 //   - Replace the hardcoded accounts, amount, currency, and issuer as needed.
-//   - [Hooks Services](https://hooks.services/tools)
-//   - Deploy this hook to your account.
-//   - Any payment of 10 XAH triggering this hook will emit the hardcoded IOU remits.
+//   - Deploy to your account.
+//   - Any payment of 10 XAH triggers the hardcoded IOU remits.
 //   - Useful for learning multi-recipient remit patterns in Xahau Hooks.
+//   - [Hooks Services](https://hooks.services/tools)
 //
 // Accepts:
 //   - Outgoing transactions.

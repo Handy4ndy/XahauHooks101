@@ -1,135 +1,102 @@
-# Xahau Hooks 101 - Reject Incoming Payment Hooks
 
-This directory contains a collection of Xahau hooks focused on rejecting incoming payments based on various criteria. These hooks are part of the Xahau Hooks 101 tutorial series, demonstrating basic payment rejection logic in smart contracts on the Xahau blockchain.
+# Xahau Hooks 101 – Reject Incoming Payment Hooks
+
+## About This Collection
+
+This directory is part of the **Xahau Hooks 101** educational series. It contains concise, beginner-friendly smart contract (Hook) examples written in C for the Xahau blockchain. These hooks demonstrate how to reject incoming payments based on various criteria. All examples are compiled to WebAssembly (WASM) using the [Xahau Hooks Builder](https://builder.xahau.network/develop) and are suitable for Testnet or Mainnet deployment.
 
 ## Overview
 
-Xahau hooks allow developers to create programmable logic that executes automatically on the blockchain. These hooks specifically handle payment transactions, enforcing rules on whether to reject incoming payments.
+Hooks in this collection demonstrate:
+- Rejecting incoming payments based on amount, type, or other criteria
+- Outgoing payments from the hook account are generally accepted
+- Use of the Hook API for transaction inspection and control
+- No persistent state or parameterization; logic is hardcoded in each hook
 
-Hooks in this collection:
-- Accept outgoing payments from the hook account.
-- Reject incoming payments based on specific conditions.
-- Use the Hook API for transaction inspection and control.
+## Hook Triggers
 
-## Hook Descriptions
+- **Triggers:**
+  - `ttPAYMENT` (Payment transactions)
+  - Only payment triggers are required for these hooks
 
-### 1. reject_incoming_exact.c
-**Purpose**: Rejects incoming XAH payments that exactly match the specified amount (10 XAH).
+## Hook List
 
-**Key Features**:
-- Rejects all outgoing payments.
-- Rejects incoming XAH payments of exactly 10 XAH.
-- Rejects incoming IOU payments.
-- Accepts incoming XAH payments that do not match the amount.
+| File                      | Purpose/Description |
+|---------------------------|---------------------|
+| reject_incoming_exact.c   | Rejects incoming XAH payments that exactly match the specified amount (10 XAH). |
+| reject_incoming_iou.c     | Rejects incoming IOU payments, accepts incoming XAH payments. |
+| reject_incoming_max.c     | Rejects incoming XAH payments above a maximum threshold (100 XAH). |
+| reject_incoming_min.c     | Rejects incoming XAH payments below a minimum threshold (1 XAH). |
+| reject_incoming_multi.c   | Rejects incoming XAH payments that are not multiples of a fixed amount (10 XAH). |
+| reject_incoming_xah.c     | Rejects incoming XAH payments, accepts IOU payments. |
+| reject_all.c              | Rejects all incoming payments. |
 
-**Use Case**: Preventing specific fixed-amount incoming payments.
+For detailed explanations, see comments in each `.c` file.
 
-### 2. reject_incoming_iou.c
-**Purpose**: Rejects incoming IOU payments, accepts incoming XAH payments.
+## Technical Patterns
 
-**Key Features**:
-- Rejects all outgoing payments.
-- Rejects any incoming IOU payments.
-- Accepts incoming XAH payments.
+- Hardcoded logic for payment rejection (no install/invoke parameters)
+- Reject or accept based on payment amount, type, or direction
+- Outgoing payments are generally accepted unless explicitly rejected
+- Use of Hook API for transaction inspection
 
-**Use Case**: XAH-only incoming payments.
+## Tools & Resources
 
-### 3. reject_incoming_max.c
-**Purpose**: Rejects incoming XAH payments above a maximum threshold (100 XAH).
+- **[Xahau Hooks Builder](https://builder.xahau.network/develop)**: Develop, compile, deploy, and test hooks
+- **[Deploy](https://builder.xahau.network/deploy)**: Deploy and configure hooks on Testnet accounts
+- **[Test](https://builder.xahau.network/test)**: Create accounts, fund them, and perform transactions
+- **[XRPLWin Hook Management](https://xahau-testnet.xrplwin.com/)**: Explore hook executions and manage deployments
+- **[Xahau Explorer](https://test.xahauexplorer.com/en)**: Verify transactions and hook details
+- **[Hex visualizer](https://transia-rnd.github.io/xrpl-hex-visualizer/)** and **[Hooks.Services](https://hooks.services/tools)**: For hex conversion and debugging
 
-**Key Features**:
-- Rejects all outgoing payments.
-- Rejects incoming XAH payments exceeding 100 XAH.
-- Rejects incoming IOU payments.
-- Accepts incoming XAH payments at or below the threshold.
+## Testing and Deployment
 
-**Use Case**: Limiting maximum incoming payment sizes.
+1. **Set Up Testnet Account(s) in Hooks Builder**
+   - Create funded accounts in the “Deploy” section: https://builder.xahau.network/deploy
+   - Or in the “Test” section: https://builder.xahau.network/test
 
-### 4. reject_incoming_min.c
-**Purpose**: Rejects incoming XAH payments below a minimum threshold (1 XAH).
+2. **Prepare the Code**
+   - Go to the “Developer” section: https://builder.xahau.network/develop
+   - Copy the desired `.c` hook code into the Xahau Hooks Builder starter template (delete the template content)
 
-**Key Features**:
-- Rejects all outgoing payments.
-- Rejects incoming XAH payments below 1 XAH.
-- Rejects incoming IOU payments.
-- Accepts incoming XAH payments at or above the threshold.
+3. **Compile**
+   - Click “Compile to WASM”
 
-**Use Case**: Filtering out micro-incoming payments or spam.
+4. **Deploy and Set Triggers**
+   - Go to the “Deploy” section and deploy the hook to an account by clicking “Set Hook”
+   - **Important:** Configure hook triggers for `ttPAYMENT`. If you don’t set this, the hook will NOT be triggered!
 
-### 5. reject_incoming_multi.c
-**Purpose**: Rejects incoming XAH payments that are not multiples of a fixed amount (10 XAH).
+5. **Test Transactions**
+   - Use the “Test” section in Hooks Builder (or XRPLWin tools) to perform transactions and test hook behavior
 
-**Key Features**:
-- Rejects all outgoing payments.
-- Rejects incoming XAH payments that are not multiples of 10 XAH.
-- Rejects incoming IOU payments.
-- Accepts incoming XAH payments that are multiples of 10 XAH.
+6. **Verify**
+   - Check results in Hooks Builder logs (TRACESTR/TRACEHEX Debug Stream) and/or in Xahau Explorer
 
-**Use Case**: Enforcing specific incoming payment increments.
+## Testing & Debugging
 
-### 6. reject_incoming_xah.c
-**Purpose**: Rejects incoming XAH payments, accepts IOU payments.
+- Use TRACESTR and TRACEHEX for execution tracing
+- Check transaction logs and explorer for results
+- **Common pitfalls:**
+  - Parameter length/type mismatches (should not occur, as logic is hardcoded)
+  - Missing triggers (hook not firing)
+  - Invalid or missing state access (should not occur)
+  - Not removing debug traces before production
 
-**Key Features**:
-- Rejects all outgoing payments.
-- Rejects any incoming XAH payments.
-- Accepts incoming IOU payments.
+## Code Structure & Best Practices
 
-**Use Case**: IOU-only incoming payments.
-
-## Tools
-Use these online tools to work with these hooks—no local setup required:
-- **[Xahau Hooks Builder](https://builder.xahau.network/develop)**: Primary platform for developing, compiling, deploying, and testing hooks on Testnet using the starter template.
-  - **[Deploy](https://builder.xahau.network/deploy)**: Deploy hooks to Testnet accounts.
-  - **[Test](https://builder.xahau.network/test)**: Create accounts, fund them, and perform transactions for testing.
-- **[XRPLWin Xahau Testnet Tools](https://xahau-testnet.xrplwin.com/tools)**: Create and test transactions on the Testnet; ideal for reviewing detailed results or preparing for Mainnet deployment.
-- **[XRPLWin Hook Management](https://xahau-testnet.xrplwin.com/account/YOUR_WALLET_RADDRESS_HERE/manage/hooks)**: Deploy and manage hooks on Testnet or Mainnet (replace `YOUR_WALLET_RADDRESS_HERE` with your account, e.g., `rTest123...`).
-- **[Xahau Testnet Faucet](https://xahau-test.net/faucet)**: Fund Testnet accounts.
-- **[Xahau Explorer](https://test.xahauexplorer.com/en)**: Verify transactions and hook details on Testnet.
-
-## Installation and Usage
-
-1. **Develop, Deploy, and Test on Testnet (All in Hooks Builder)**:
-   - Copy the desired `.c` hook code into the [Xahau Hooks Builder](https://builder.xahau.network/develop) basic starter template.
-   - Compile to WASM.
-   - Move to the [Deploy](https://builder.xahau.network/deploy) section: Set the hook on a Testnet account, configure hook triggers (e.g., for payments), and add any install parameters if needed.
-   - Move to [Testing](https://builder.xahau.network/test): Perform transactions to test the hook behavior.
-
-2. **Verify Results and Confirm Hook Behavior**:
-   - Use [XRPLWin Xahau Testnet Tools](https://xahau-testnet.xrplwin.com/tools) to check detailed testing results and confirm the hook's behavior.
-
-3. **Deploy to Mainnet**:
-   - When satisfied with Testnet testing, use [XRPLWin Hook Management](https://xahau-testnet.xrplwin.com/account/YOUR_WALLET_RADDRESS_HERE/manage/hooks) to deploy the hook to a Mainnet account (replace `YOUR_WALLET_RADDRESS_HERE` with your account address).
-
-## Debugging Tips
-- **Logs**: Use `TRACESTR` and `TRACEHEX` to track execution (e.g., `TRACESTR("RIP :: Reject Incoming Payment :: Called.");`).
-- **Xahau Explorer**: Verify `TransactionType`, `Amount`, and `HookHash`.
-- **Common Issues**:
-  - `Execution failure (no exit type specified)`: Caused by invalid `sfAmount` access. Use `uint8_t amount[48]` and check `otxn_field` returns.
-  - Non-Payment transactions: Ensure hooks are set for `ttPayment`.
-
-## Code Structure
-
-Each hook follows a similar structure:
-- Header with description and requirements.
-- Hook function entry point.
-- Account validation (hook vs originating account).
-- Payment amount validation.
-- Accept or rollback based on conditions.
-
-## Important Notes
-
-- All amounts are in XAH (1 XAH = 1,000,000 drops).
-- Hooks execute before transaction processing.
-- Rollback prevents transaction execution.
-- Accept allows transaction to proceed.
-- Use TRACE statements for debugging (remove in production).
+- Each hook has a clear entry point, account validation, and payment amount/type validation
+- Accept or rollback based on conditions
+- Use safe state handling (if any) and clear rollback messages
+- Remove debug traces before production deployment
 
 ## Dependencies
 
-- Xahau Hook API (`hookapi.h`).
-- Standard C libraries for buffer operations.
+- Requires `hookapi.h` and standard C libraries
 
 ## Contributing
 
-This is part of the Xahau Hooks 101 educational series. Contributions and improvements are welcome!
+This is an open educational resource. Contributions and improvements are welcome!
+
+## License
+
+See the root project LICENSE file for details.
