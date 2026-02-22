@@ -1,14 +1,27 @@
 //**************************************************************
-// Xahau Hook 101 Example ~ Reject All Payments Hook
+// Xahau Hook 101 Example ~ Reject All Payments
 // Author: @Handy_4ndy
 //
 // Description:
-//   This hook rejects all incoming payments and all outgoing payments.
+//   Rejects all incoming and outgoing payments to the Hook account, regardless of amount or asset type.
 //
-// Rejects:-
+// Triggers:
+//   ttPAYMENT (incoming and outgoing payments)
+//
+// Parameters:
+//   None (all logic is hardcoded)
+//
+// Usage:
+//   - Deploy to a Xahau account using Xahau Hooks Builder.
+//   - Set trigger for ttPAYMENT.
+//   - Any incoming or outgoing payment will be rejected.
+//
+// Accepts:
+//   None (all payments are rejected).
+//
+// Rejects:
 //   - All incoming payments.
 //   - All outgoing payments.
-//
 //**************************************************************
 
 #include "hookapi.h"

@@ -1,18 +1,27 @@
 //**************************************************************
-// Xahau Hook 101 Example ~ Accept Incoming IOU Hook
+// Xahau Hook 101 Example ~ Accept Incoming IOU
 // Author: @Handy_4ndy
 //
 // Description:
-//   This hook accepts incoming IOU payments and outgoing payments.
-//   Rejects incoming XAH payments.
+//   Accepts incoming IOU payments and outgoing payments; rejects incoming XAH payments.
 //
-// Accepts:-
+// Triggers:
+//   ttPAYMENT (incoming payments only)
+//
+// Parameters:
+//   None (all logic is hardcoded)
+//
+// Usage:
+//   - Deploy to a Xahau account using Xahau Hooks Builder.
+//   - Set trigger for ttPAYMENT.
+//   - Incoming IOU payments and outgoing payments will be accepted.
+//
+// Accepts:
 //   - Incoming IOU payments.
 //   - Outgoing payments.
 //
-// Rejects:-
+// Rejects:
 //   - Incoming XAH payments.
-//
 //**************************************************************
 
 

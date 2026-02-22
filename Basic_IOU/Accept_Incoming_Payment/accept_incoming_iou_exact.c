@@ -1,18 +1,28 @@
 //**************************************************************
-// Xahau Hook 101 Example ~ Accept Incoming IOU Hook
+// Xahau Hook 101 Example ~ Accept Incoming IOU Exact Amount
 // Author: @Handy_4ndy
 //
 // Description:
-//   This hook allows the owner to accept all incoming IOU payments.
+//   Accepts incoming IOU payments that exactly match 10 IOU; rejects all other incoming IOU amounts.
 //
-// Accepts:-
-//   - All incoming IOU payments.
+// Triggers:
+//   ttPAYMENT (incoming payments only)
+//
+// Parameters:
+//   None (all logic is hardcoded)
+//
+// Usage:
+//   - Deploy to a Xahau account using Xahau Hooks Builder.
+//   - Set trigger for ttPAYMENT.
+//   - Only incoming IOU payments of exactly 10 IOU will be accepted.
+//
+// Accepts:
+//   - Incoming IOU payments of exactly 10 IOU.
 //   - All outgoing payments.
 //   - All incoming XAH payments.
 //
-// Rejects:-
-//   - Incoming IOU payments that do not match the exact amount.
-//
+// Rejects:
+//   - Incoming IOU payments not equal to 10 IOU.
 //**************************************************************
 
 #include "hookapi.h"

@@ -1,19 +1,28 @@
 //**************************************************************
-// Xahau Hook 101 Example ~ Accept Incoming IOU Min Hook
+// Xahau Hook 101 Example ~ Accept Incoming IOU Min Amount
 // Author: @Handy_4ndy
 //
 // Description:
-//   This hook accepts incoming IOU payments when the amount is above the minimum threshold.
-//   The minimum amount is set to 1 IOU.
+//   Accepts incoming IOU payments at or above 1 IOU; rejects incoming IOU payments below this threshold.
 //
-// Accepts:-
-//   - Incoming IOU payments when the amount is above the minimum threshold.
+// Triggers:
+//   ttPAYMENT (incoming payments only)
+//
+// Parameters:
+//   None (all logic is hardcoded)
+//
+// Usage:
+//   - Deploy to a Xahau account using Xahau Hooks Builder.
+//   - Set trigger for ttPAYMENT.
+//   - Only incoming IOU payments at or above 1 IOU will be accepted.
+//
+// Accepts:
+//   - Incoming IOU payments at or above 1 IOU.
 //   - Outgoing payments.
 //   - Incoming XAH payments.
 //
-// Rejects:-
-//   - Payments below the minimum amount.
-//
+// Rejects:
+//   - Incoming IOU payments below 1 IOU.
 //**************************************************************
 
 

@@ -1,18 +1,27 @@
 //**************************************************************
-// Xahau Hook 101 Example ~ Reject Outgoing XAH Hook
+// Xahau Hook 101 Example ~ Reject Outgoing XAH
 // Author: @Handy_4ndy
 //
 // Description:
-//   This hook rejects incoming payments and outgoing XAH payments.
-//   Accepts outgoing IOU payments.
+//   Rejects incoming payments and outgoing XAH payments. Accepts outgoing IOU payments.
 //
-// Accepts:-
+// Triggers:
+//   ttPAYMENT (outgoing payments only)
+//
+// Parameters:
+//   None (all logic is hardcoded)
+//
+// Usage:
+//   - Deploy to a Xahau account using Xahau Hooks Builder.
+//   - Set trigger for ttPAYMENT.
+//   - Outgoing IOU payments will be accepted; others rejected.
+//
+// Accepts:
 //   - Outgoing IOU payments.
 //
-// Rejects:-
+// Rejects:
 //   - Incoming payments.
 //   - Outgoing XAH payments.
-//
 //**************************************************************
 
 #include "hookapi.h"

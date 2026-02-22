@@ -1,19 +1,28 @@
 //**************************************************************
-// Xahau Hook 101 Example ~ Accept Outgoing IOU Exact Hook
+// Xahau Hook 101 Example ~ Accept Outgoing IOU Exact Amount
 // Author: @Handy_4ndy
 //
 // Description:
-//   This hook accepts outgoing IOU payments that exactly match 10 IOU, incoming payments, and outgoing XAH payments.
-//   Rejects outgoing IOU payments that do not match the exact amount.
+//   Accepts outgoing IOU payments that exactly match 10 IOU; rejects all other outgoing IOU amounts. Incoming payments and outgoing XAH payments are always accepted.
 //
-// Accepts:-
-//   - Outgoing IOU payments that match the specified amount (10 IOU).
+// Triggers:
+//   ttPAYMENT (outgoing payments only)
+//
+// Parameters:
+//   None (all logic is hardcoded)
+//
+// Usage:
+//   - Deploy to a Xahau account using Xahau Hooks Builder.
+//   - Set trigger for ttPAYMENT.
+//   - Only outgoing IOU payments of exactly 10 IOU will be accepted.
+//
+// Accepts:
+//   - Outgoing IOU payments of exactly 10 IOU.
 //   - Incoming payments.
 //   - Outgoing XAH payments.
 //
-// Rejects:-
-//   - Outgoing IOU payments that do not match the exact amount.
-//
+// Rejects:
+//   - Outgoing IOU payments not equal to 10 IOU.
 //**************************************************************
 
 

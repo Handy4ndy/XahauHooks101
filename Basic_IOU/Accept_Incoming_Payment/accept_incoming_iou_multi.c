@@ -1,20 +1,28 @@
 //**************************************************************
-// Xahau Hook 101 Example ~ Accept Incoming IOU Multi Hook
+// Xahau Hook 101 Example ~ Accept Incoming IOU Multiple
 // Author: @Handy_4ndy
 //
 // Description:
-//   This hook accepts incoming IOU payments that are a multiple of the fixed IOU amount.
-//   The fixed amount is set to 10 IOU.
+//   Accepts incoming IOU payments that are multiples of 10 IOU; rejects payments less than 10 IOU or not a multiple.
 //
-// Accepts:-
-//   - Incoming IOU payments that are a multiple of the fixed IOU amount.
+// Triggers:
+//   ttPAYMENT (incoming payments only)
+//
+// Parameters:
+//   None (all logic is hardcoded)
+//
+// Usage:
+//   - Deploy to a Xahau account using Xahau Hooks Builder.
+//   - Set trigger for ttPAYMENT.
+//   - Only incoming IOU payments that are multiples of 10 IOU will be accepted.
+//
+// Accepts:
+//   - Incoming IOU payments that are multiples of 10 IOU.
 //   - Outgoing payments.
 //   - Incoming XAH payments.
 //
-// Rejects:-
-//   - If the payment is less than the fixed amount.
-//   - If not a multiple.
-//
+// Rejects:
+//   - Incoming IOU payments less than 10 IOU or not a multiple.
 //**************************************************************
 
 

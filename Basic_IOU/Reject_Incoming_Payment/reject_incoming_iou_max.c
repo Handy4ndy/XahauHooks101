@@ -1,19 +1,28 @@
 //**************************************************************
-// Xahau Hook 101 Example ~ Reject Incoming IOU Max Hook
+// Xahau Hook 101 Example ~ Reject Incoming IOU Max Amount
 // Author: @Handy_4ndy
 //
 // Description:
-//   This hook rejects outgoing payments, incoming IOU payments above the maximum threshold (100 IOU), and incoming XAH payments.
-//   Accepts incoming IOU payments below the maximum threshold.
+//   Rejects outgoing payments, incoming IOU payments above 100 IOU, and incoming XAH payments. Accepts incoming IOU payments at or below 100 IOU.
 //
-// Accepts:-
-//   - Incoming IOU payments below the maximum threshold.
+// Triggers:
+//   ttPAYMENT (incoming payments only)
 //
-// Rejects:-
+// Parameters:
+//   None (all logic is hardcoded)
+//
+// Usage:
+//   - Deploy to a Xahau account using Xahau Hooks Builder.
+//   - Set trigger for ttPAYMENT.
+//   - Incoming IOU payments at or below 100 IOU will be accepted; others rejected.
+//
+// Accepts:
+//   - Incoming IOU payments at or below 100 IOU.
+//
+// Rejects:
 //   - Outgoing payments.
-//   - Incoming IOU payments above the maximum threshold (100 IOU).
+//   - Incoming IOU payments above 100 IOU.
 //   - Incoming XAH payments.
-//
 //**************************************************************
 
 #include "hookapi.h"

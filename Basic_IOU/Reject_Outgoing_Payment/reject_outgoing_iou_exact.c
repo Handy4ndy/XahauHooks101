@@ -1,19 +1,28 @@
 //**************************************************************
-// Xahau Hook 101 Example ~ Reject Outgoing IOU Exact Hook
+// Xahau Hook 101 Example ~ Reject Outgoing IOU Exact Amount
 // Author: @Handy_4ndy
 //
 // Description:
-//   This hook rejects incoming payments, outgoing IOU payments that exactly match the specified amount (10 IOU), and outgoing XAH payments.
-//   Accepts outgoing IOU payments that do not exactly match the specified amount.
+//   Rejects incoming payments, outgoing IOU payments that exactly match 10 IOU, and outgoing XAH payments. Accepts outgoing IOU payments not equal to 10 IOU.
 //
-// Accepts:-
-//   - Outgoing IOU payments that do not exactly match the specified amount.
+// Triggers:
+//   ttPAYMENT (outgoing payments only)
 //
-// Rejects:-
+// Parameters:
+//   None (all logic is hardcoded)
+//
+// Usage:
+//   - Deploy to a Xahau account using Xahau Hooks Builder.
+//   - Set trigger for ttPAYMENT.
+//   - Outgoing IOU payments not equal to 10 IOU will be accepted; others rejected.
+//
+// Accepts:
+//   - Outgoing IOU payments not equal to 10 IOU.
+//
+// Rejects:
 //   - Incoming payments.
-//   - Outgoing IOU payments that exactly match the specified amount (10 IOU).
+//   - Outgoing IOU payments equal to 10 IOU.
 //   - Outgoing XAH payments.
-//
 //**************************************************************
 
 #include "hookapi.h"

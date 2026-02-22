@@ -1,19 +1,28 @@
 //**************************************************************
-// Xahau Hook 101 Example ~ Reject Outgoing IOU Multi Hook
+// Xahau Hook 101 Example ~ Reject Outgoing IOU Multiple
 // Author: @Handy_4ndy
 //
 // Description:
-//   This hook rejects incoming payments, outgoing IOU payments that are not multiples of the fixed amount (10 IOU), and outgoing XAH payments.
-//   Accepts outgoing IOU payments that are multiples of the fixed amount.
+//   Rejects incoming payments, outgoing IOU payments not multiples of 10 IOU, and outgoing XAH payments. Accepts outgoing IOU payments that are multiples of 10 IOU.
 //
-// Accepts:-
-//   - Outgoing IOU payments that are multiples of the fixed amount.
+// Triggers:
+//   ttPAYMENT (outgoing payments only)
 //
-// Rejects:-
+// Parameters:
+//   None (all logic is hardcoded)
+//
+// Usage:
+//   - Deploy to a Xahau account using Xahau Hooks Builder.
+//   - Set trigger for ttPAYMENT.
+//   - Outgoing IOU payments that are multiples of 10 IOU will be accepted; others rejected.
+//
+// Accepts:
+//   - Outgoing IOU payments that are multiples of 10 IOU.
+//
+// Rejects:
 //   - Incoming payments.
-//   - Outgoing IOU payments that are not multiples of the fixed amount (10 IOU).
+//   - Outgoing IOU payments not multiples of 10 IOU.
 //   - Outgoing XAH payments.
-//
 //**************************************************************
 
 

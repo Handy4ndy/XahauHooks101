@@ -1,14 +1,27 @@
 //**************************************************************
-// Xahau Hook 101 Example ~ Accept All Payments Hook
+// Xahau Hook 101 Example ~ Accept All Payments
 // Author: @Handy_4ndy
 //
 // Description:
-//   This hook accepts all incoming payments and all outgoing payments.
+//   Accepts all incoming and outgoing payments to the Hook account, regardless of amount or asset type.
 //
-// Accepts:-
+// Triggers:
+//   ttPAYMENT (incoming and outgoing payments)
+//
+// Parameters:
+//   None (all logic is hardcoded)
+//
+// Usage:
+//   - Deploy to a Xahau account using Xahau Hooks Builder.
+//   - Set trigger for ttPAYMENT.
+//   - Any incoming or outgoing payment will be accepted.
+//
+// Accepts:
 //   - All incoming payments.
 //   - All outgoing payments.
 //
+// Rejects:
+//   None (all payments are accepted).
 //**************************************************************
 
 #include "hookapi.h"
