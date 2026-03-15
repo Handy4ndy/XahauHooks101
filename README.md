@@ -1,6 +1,7 @@
+
 # Xahau Hooks 101
 
-Welcome to **Xahau Hooks 101** — the definitive educational resource for learning smart contract (Hook) development on the Xahau Network! This repository contains **101 real, working Hook examples** written in C, each designed to be concise, clear, and practical. Every example is a fully functional contract, thoroughly commented, and focused on a specific concept or pattern.
+Welcome to **Xahau Hooks 101** — the definitive educational resource for learning smart contract (Hook) development on the Xahau Network! This repository now contains **108 real, working Hook examples** written in C, each designed to be concise, clear, and practical. Every example is a fully functional contract, thoroughly commented, and focused on a specific concept or pattern.
 
 Whether you’re new to smart contracts, an experienced developer exploring Xahau, or just curious about decentralized logic, you’ll find these examples approachable and hands-on. All contracts are ready to compile to WebAssembly (WASM) using the [Xahau Hooks Builder](https://builder.xahau.network/develop) and can be tested on the Xahau Testnet or deployed to Mainnet.
 
@@ -14,7 +15,8 @@ Xahau Hooks are lightweight WASM modules that add custom logic to Xahau accounts
 
 ## Repository Structure
 
-The repository is organized into 9 major collections, each with its own README and set of focused examples:
+
+The repository is organized into 10 major collections, each with its own README and set of focused examples:
 
 | Collection                        | Description |
 |------------------------------------|-------------|
@@ -23,12 +25,13 @@ The repository is organized into 9 major collections, each with its own README a
 | [Basic_State/](Basic_State/)                           | State management and persistence (8 hooks) |
 | [Basic_IOU/](Basic_IOU/)                               | IOU token payment handling and validation (28 hooks) |
 | [Basic_Native/](Basic_Native/)                         | Native XAH payment processing (28 hooks) |
+| [Emit_Invoke/](Emit_Invoke/)                           | Canonical emission patterns using Invoke transactions (7 hooks) |
 | [Emit_IOU/](Emit_IOU/)                                 | IOU token emission using Payment transactions (7 hooks) |
 | [Emit_Native/](Emit_Native/)                           | Native XAH emission and distribution (7 hooks) |
 | [Remit_IOU/](Remit_IOU/)                               | IOU token remitting with automatic trustline creation (7 hooks) |
 | [Remit_URI/](Remit_URI/)                               | NFT-like URIToken creation and distribution (6 hooks) |
 
-**Total: 101 working Hook examples across 9 organized collections**
+**Total: 108 working Hook examples across 10 organized collections**
 
 ---
 
@@ -60,6 +63,7 @@ The repository is organized into 9 major collections, each with its own README a
 - **[XRPLWin Hook Management](https://xahau-testnet.xrplwin.com/)**: Explore hook executions and manage deployments
 - **[Xahau Explorer](https://test.xahauexplorer.com/en)**: Verify transactions and hook details
 - **[Hex visualizer](https://transia-rnd.github.io/xrpl-hex-visualizer/)** and **[Hooks.Services](https://hooks.services/tools)**: For hex conversion and debugging
+- **[Xahau Hook Tx Builder](https://tx-builder.xahau.tools/)**: Paste a JSON Xahau transaction and instantly convert it to a C hook binary transaction with builder macros. Great for prototyping and learning how transactions are structured in binary. Made by @tequdev.
 
 ---
 
@@ -70,11 +74,13 @@ The repository is organized into 9 major collections, each with its own README a
 2. **[Basic_State/](Basic_State/)** - Understand state management
 3. **[Basic_Native/](Basic_Native/)** - Work with XAH payments
 4. **[Emit_Native/](Emit_Native/)** - Create your first emissions
+5. **[Emit_IOU/](Emit_IOU/)** - IOU token emission using Payment transactions
 
 **Ready for Advanced Features?**
 1. **[Basic_IOU/](Basic_IOU/)** - Multi-currency operations  
 2. **[Remit_IOU/](Remit_IOU/)** - Automatic trustline creation
 3. **[Remit_URI/](Remit_URI/)** - NFT-like token creation
+4. **[Emit_Invoke/](Emit_Invoke/)** - Canonical emission patterns using Invoke transactions
 
 ---
 
@@ -129,13 +135,16 @@ This collection represents the collaborative effort of the Xahau Hooks community
 **Notable Contributors:**
 - **[Cbot](https://github.com/Cbot-XRPL)** - URI remit patterns and technical guidance
 - **[Andrei Rosseti](https://github.com/rosseti)** - Code snippets and implementation insights
+- **[tequdev](https://github.com/tequdev)** - Xahau Hook Tx Builder (JSON C binary converter)
+- **[technotip](https://github.com/technotip)** - Hooks.Services tools and utilities
+- **[zgrguric](https://github.com/zgrguric)** - Xahau Explorer and related explorer tools
 - **Community developers** who tested, debugged, and improved these examples
 
 ---
 
 ## Contributing
 
-This project is complete at **101 working examples**, but the Xahau ecosystem continues to evolve! Contributions for:
+This project has complete at **108 working examples**, but the Xahau ecosystem continues to evolve! Contributions for:
 - Bug fixes and optimizations
 - Documentation improvements  
 - New advanced patterns as they emerge
