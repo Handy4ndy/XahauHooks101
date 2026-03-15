@@ -112,7 +112,7 @@ uint8_t txn[234] =
 int64_t hook(uint32_t reserved)
 {
     // Log entry for debugging
-    TRACESTR("IMIE :: Invoke-time Multi-Invoke Emit :: Called");
+    TRACESTR("IMIE :: Invoked Multi Invoke Emit :: Called");
 
     int64_t tt = otxn_type();
 
