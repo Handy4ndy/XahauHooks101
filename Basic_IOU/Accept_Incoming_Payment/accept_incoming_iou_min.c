@@ -1,0 +1,83 @@
+//**************************************************************
+// Xahau Hook 101 Example ~ Accept Incoming IOU Min Amount
+// Author: @Handy_4ndy
+//
+// Description:
+//   Accepts incoming IOU payments at or above 1 IOU; rejects incoming IOU payments below this threshold.
+//
+// Triggers:
+//   ttPAYMENT (incoming payments only)
+//
+// Parameters:
+//   None (all logic is hardcoded)
+//
+// Usage:
+//   - Deploy to a Xahau account using Xahau Hooks Builder.
+//   - Set trigger for ttPAYMENT.
+//   - Only incoming IOU payments at or above 1 IOU will be accepted.
+//
+// Accepts:
+//   - Incoming IOU payments at or above 1 IOU.
+//   - Outgoing payments.
+//   - Incoming XAH payments.
+//
+// Rejects:
+//   - Incoming IOU payments below 1 IOU.
+//**************************************************************
+
+
+#include "hookapi.h"
+
+int64_t hook(uint32_t reserved) {
+
+    TRACESTR("AII :: Accept Incoming IOU :: Called.");
+
+    // Define the minimum allowed amount in IOU
+    uint64_t min_amount = 1; // 1 IOU
+    uint64_t min_drops = min_amount * 1000000;
+
+    // Get the Hook account
+    uint8_t hook_acc[20];
+    hook_account(SBUF(hook_acc));
+
+    TRACEHEX(hook_acc);
+
+    // Get the Originating account of the transaction
+    uint8_t otxn_acc[20];
+    otxn_field(SBUF(otxn_acc), sfAccount);
+
+    TRACEHEX(otxn_acc);
+
+    // Accept all outgoing payments
+    if (BUFFER_EQUAL_20(hook_acc, otxn_acc)){
+        accept(SBUF("AII :: Accepted :: Outgoing payment."), __LINE__);
+    }
+
+    // Buffer to hold the amount field from the transaction
+    uint8_t amount_buffer[48];
+
+    // Retrieve the amount field from the originating transaction
+    int64_t amount_len = otxn_field(SBUF(amount_buffer), sfAmount);
+    
+    // Accept Xah Payment
+    if (amount_len != 48)
+        accept(SBUF("AII :: Incoming XAH Accepted."), __LINE__);
+
+    // Convert IOU amount to drops
+    int64_t amount_xfl = -INT64_FROM_BUF(amount_buffer);
+    int64_t amount_drops = float_int(amount_xfl, 6, 1);
+    int64_t amount_int = float_int(amount_xfl, 0, 1);
+
+    TRACEVAR(min_amount);
+    TRACEVAR(amount_int);
+
+    // Check if below minimum
+    if (amount_drops < min_drops)
+        rollback(SBUF("AII :: Incoming payment is below minimum amount."), __LINE__);
+
+    // Accept the payment as it is above the minimum threshold
+    accept(SBUF("AII :: Incoming IOU amount above the minimum amount threshold."), __LINE__);
+
+    _g(1,1); // Guard
+    return 0;
+}
